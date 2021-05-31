@@ -1,13 +1,13 @@
 // provides methods concerning the crop factor
 
-exports.sensor_size = {	// from wikipedia
-	"35mm": (24, 36),
-	"APS-H": (19, 28.7),
-	"APS-C NPS": (15.7, 23.6),
-	"APS-C C": (14.8, 22.2),
-	"APS-C": (15, 22.5),
-	"4/3": (13.5, 18),
-	'1"': (8.8, 13.2)
+sensor_sizes = {	// from wikipedia
+	"35mm": [24, 36],
+	"APS-H": [19, 28.7],
+	"APS-C NPS": [15.7, 23.6],
+	"APS-C C": [14.8, 22.2],
+	"APS-C": [15, 22.5],
+	"4/3": [13.5, 18],
+	'1"': [8.8, 13.2]
 }
 exports.equiv_focal_length = function (f, cf) {
 // return Math.round(f * cf)
