@@ -1,0 +1,29 @@
+{
+  "name": "photography-toolbox",
+  "version": "0.1.0",
+  "description": "A toolbox for calculationg Depth of Field, Exposure and much more to come ",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paulypeter/photography-toolbox.git"
+  },
+  "keywords": [
+    "photography"
+  ],
+  "author": "Peter Pauly",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/paulypeter/photography-toolbox/issues"
+  },
+  "homepage": "https://github.com/paulypeter/photography-toolbox#readme",
+  "devDependencies": {
+    "eslint": "^7.27.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0"
+  }
+}
