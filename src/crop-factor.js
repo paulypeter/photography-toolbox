@@ -10,16 +10,16 @@ sensor_sizes = {	// from wikipedia
 	'1"': [8.8, 13.2]
 }
 
-exports.equiv_focal_length = function (f, cf) {
+equiv_focal_length = function (f, cf) {
 // return Math.round(f * cf)
 	return f * cf
 }
 
-exports.normal_focal_length = function (cf) {
+normal_focal_length = function (cf) {
 	return 0
 }
 
-exports.hyperfocal = function (f, aperture, sensor) {
+hyperfocal = function (f, aperture, sensor) {
 	return f * f / aperture / coc(sensor)
 }
 
