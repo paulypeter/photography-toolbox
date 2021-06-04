@@ -1,3 +1,5 @@
+![npm](https://img.shields.io/npm/v/photography-toolbox)
+
 # photography-toolbox
 
 A toolbox for calculationg Depth of Field, Exposure and much more to come
