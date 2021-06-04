@@ -1,3 +1,13 @@
-CROP = require('./crop-factor')
+const CROP = require('./crop-factor')
 
-console.log(CROP.equiv_focal_length(10, 1.6))
+module.exports = {
+    sensor_sizes,
+    coc,
+    diagonal,
+    crop_factor,
+    hyperfocal,
+    equiv_focal_length,
+    normal_focal_length
+}
+
+console.log(crop_factor(sensor_sizes["APS-C C"]))
