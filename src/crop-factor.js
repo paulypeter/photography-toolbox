@@ -19,21 +19,20 @@ normal_focal_length = function (cf) {
 	return 0
 }
 
-hyperfocal = function (f, aperture, sensor) {
-	return f * f / aperture / coc(sensor)
+hyperfocal = function (f, aperture, sensor_size) {
+	return f * f / aperture / coc(sensor_size)
 }
 
-crop_factor = function (sensor) {
-	return this.diagonal(24, 36) / this.diagonal(sensor)
+crop_factor = function (sensor_size) {
+	return diagonal([24, 36]) / diagonal(sensor_size)
 }
 
 
-diagonal = function (sensor) {
-	sensor_size = sensor_sizes[sensor]
+diagonal = function (sensor_size) {
 	return Math.sqrt(sensor_size[0] ** 2 + sensor_size[1] ** 2)
 }
 
-coc = function (sensor) {
-	diag = diagonal(sensor)
+coc = function (sensor_size) {
+	diag = diagonal(sensor_size)
 	return diag / 1730
 }
