@@ -2,15 +2,19 @@
     margin: 0 auto;
 }
 
+a, .menu{
+    color: white;
+    font-size: larger;
+    cursor: pointer;
+}
+
 .nav {
     background: blue;
     width: 100%;
     margin: 0 auto;
-    font-size: large;
     color: white;
 }
 
 .menu {
-    width: 50px;
     float: left;
 }
