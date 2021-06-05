@@ -12,9 +12,12 @@ a, .menu{
     background: blue;
     width: 100%;
     margin: 0 auto;
+    padding: 10px;
     color: white;
 }
 
-.menu {
+.menu, .topbar-title {
     float: left;
+    padding-left: 10px;
+    padding-right: 10px;
 }
