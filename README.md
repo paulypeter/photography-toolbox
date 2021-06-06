@@ -1,6 +1,6 @@
-[![npm](https://img.shields.io/npm/v/photography-toolbox?style=plastic)](https://www.npmjs.com/package/photography-toolbox) ![npm](https://img.shields.io/npm/dw/photography-toolbox?style=plastic)
+[![npm](https://img.shields.io/npm/v/photography-toolbox)](https://www.npmjs.com/package/photography-toolbox) ![npm](https://img.shields.io/npm/dw/photography-toolbox)
 
-[![GitHub](https://img.shields.io/github/license/paulypeter/photography-toolbox?style=plastic)](https://github.com/paulypeter/photography-toolbox/blob/main/LICENSE) [![GitHub issues](https://img.shields.io/github/issues-raw/paulypeter/photography-toolbox?style=plastic)](https://github.com/paulypeter/photography-toolbox/issues) [![codecov](https://codecov.io/gh/paulypeter/photography-toolbox/branch/dev-testing/graph/badge.svg?token=YRNP452YL7)](https://codecov.io/gh/paulypeter/photography-toolbox)
+[![GitHub](https://img.shields.io/github/license/paulypeter/photography-toolbox)](https://github.com/paulypeter/photography-toolbox/blob/main/LICENSE) [![GitHub issues](https://img.shields.io/github/issues-raw/paulypeter/photography-toolbox)](https://github.com/paulypeter/photography-toolbox/issues) [![codecov](https://codecov.io/gh/paulypeter/photography-toolbox/branch/dev-testing/graph/badge.svg?token=YRNP452YL7)](https://codecov.io/gh/paulypeter/photography-toolbox)
 
 # photography-toolbox
 
