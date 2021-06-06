@@ -24,3 +24,11 @@ APERTURES = [
 ]
 
 number_of_third_steps = (array, val1, val2) => array.indexOf(val2) - array.indexOf(val1)
+
+exposure_value = (aperture, shutter_speed, iso_speed = 100) => {
+    ev_s = Math.round(Math.log2((aperture ** 2) / shutter_speed))
+    if (iso_speed !== 100) {
+        ev_s +=  Math.log2(iso_speed / 100)
+    }
+    return ev_s
+}

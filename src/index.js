@@ -1,5 +1,6 @@
 const CROP = require('./crop-factor')
 const FLASH = require('./flash')
+const EXPOSURE = require('./exposure')
 
 module.exports = {
     // sensor
@@ -18,7 +19,9 @@ module.exports = {
     ISO_SPEEDS,
     SHUTTER_SPEEDS,
     APERTURES,
-    number_of_third_steps
+    number_of_third_steps,
+    exposure_value
 }
 
 console.log(crop_factor(sensor_sizes["APS-C C"]))
+console.log(exposure_value(8, 1 / 250, 400))
