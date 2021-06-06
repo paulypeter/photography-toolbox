@@ -1,4 +1,4 @@
-![npm](https://img.shields.io/npm/v/photography-toolbox)
+[![npm](https://img.shields.io/npm/v/photography-toolbox)](https://www.npmjs.com/package/photography-toolbox)
 
 # photography-toolbox
 
