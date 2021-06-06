@@ -43,6 +43,17 @@ a, .menu{
 }
 
 .card-content {
-    width: 100%;
+    color: black;
     padding: 10px;
+    border-radius: 0 0 5px 5px;
+    background-color: #808080;
+}
+
+.btn-plain {
+    color: blue;
+    margin-top: 50px;
+    font-size: medium;
+    text-decoration: none;
+    cursor: pointer;
+    outline: none;
 }
