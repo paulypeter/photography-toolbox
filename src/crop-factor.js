@@ -10,29 +10,15 @@ sensor_sizes = {	// from wikipedia
 	'1"': [8.8, 13.2]
 }
 
-equiv_focal_length = function (f, cf) {
 // return Math.round(f * cf)
-	return f * cf
-}
+equiv_focal_length = (f, cf) =>  f * cf
 
-normal_focal_length = function (cf) {
-	return 0
-}
+normal_focal_length = sensor_size => Math.round(diagonal(sensor_size))
 
-hyperfocal = function (f, aperture, sensor_size) {
-	return f * f / aperture / coc(sensor_size)
-}
+hyperfocal = (f, aperture, sensor_size) => f * f / aperture / coc(sensor_size)
 
-crop_factor = function (sensor_size) {
-	return diagonal([24, 36]) / diagonal(sensor_size)
-}
+crop_factor = (sensor_size) => diagonal([24, 36]) / diagonal(sensor_size)
 
+diagonal = sensor_size => Math.sqrt(sensor_size[0] ** 2 + sensor_size[1] ** 2)
 
-diagonal = function (sensor_size) {
-	return Math.sqrt(sensor_size[0] ** 2 + sensor_size[1] ** 2)
-}
-
-coc = function (sensor_size) {
-	diag = diagonal(sensor_size)
-	return diag / 1730
-}
+coc = sensor_size => diagonal(sensor_size) / 1730
