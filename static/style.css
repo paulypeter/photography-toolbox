@@ -2,6 +2,10 @@
     margin: 0 auto;
 }
 
+body {
+    background-color: gray;
+}
+
 a, .menu{
     color: white;
     font-size: larger;
@@ -9,15 +13,36 @@ a, .menu{
 }
 
 .nav {
-    background: blue;
+    position: static;
     width: 100%;
+    background: blue;
     margin: 0 auto;
     padding: 10px;
     color: white;
+    overflow: none;
 }
 
 .menu, .topbar-title {
     float: left;
     padding-left: 10px;
     padding-right: 10px;
+}
+
+.card {
+    position: absolute;
+    border-radius: 5px;
+    margin: 5px;
+    width:auto;
+    border: 1px solid blue;
+}
+
+.card-title {
+    padding: 10px;
+    background-color: blue;
+    color: white;
+}
+
+.card-content {
+    width: 100%;
+    padding: 10px;
 }
