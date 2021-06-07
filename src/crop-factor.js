@@ -11,11 +11,11 @@ sensor_sizes = {	// from wikipedia
 }
 
 // return Math.round(f * cf)
-equiv_focal_length = (f, cf) =>  f * cf
+equiv_focal_length = (focal_length, cf) =>  focal_length * cf
 
 normal_focal_length = sensor_size => Math.round(diagonal(sensor_size))
 
-hyperfocal = (f, aperture, sensor_size) => f * f / aperture / coc(sensor_size)
+hyperfocal = (focal_length, f_stop, sensor_size) => (focal_length ** 2) / f_stop / coc(sensor_size)
 
 crop_factor = (sensor_size) => diagonal([24, 36]) / diagonal(sensor_size)
 

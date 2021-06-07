@@ -14,7 +14,7 @@ module.exports = {
     // flash
     guide_number,
     flash_max_distance,
-    flash_aperture,
+    flash_f_stop,
     // exposure
     ISO_SPEEDS,
     SHUTTER_SPEEDS,
