@@ -16,4 +16,50 @@ test("Returns correct crop factor", () => {
             photographyTools.sensor_sizes["35mm"]
         )
     ).toBe(1);
+    expect(
+        photographyTools.crop_factor(
+            photographyTools.sensor_sizes["APS-H"]
+        )
+    ).toBe(1.3);
+    expect(
+        photographyTools.crop_factor(
+            photographyTools.sensor_sizes["APS-C C"]
+        )
+    ).toBe(1.6);
+});
+
+test("Returns correct CoC", () => {
+    expect(
+        photographyTools.coc(
+            photographyTools.sensor_sizes["35mm"]
+        )
+    ).toBe(0.029);
+    expect(
+        photographyTools.crop_factor(
+            photographyTools.sensor_sizes["APS-H"]
+        )
+    ).toBe(0.023);
+    expect(
+        photographyTools.crop_factor(
+            photographyTools.sensor_sizes["APS-C C"]
+        )
+    ).toBe(0.018);
+});
+
+test("Returns correct normal focal length", () => {
+    expect(
+        photographyTools.coc(
+            photographyTools.sensor_sizes["35mm"]
+        )
+    ).toBe(43);
+    expect(
+        photographyTools.crop_factor(
+            photographyTools.sensor_sizes["APS-H"]
+        )
+    ).toBe(33);
+    expect(
+        photographyTools.crop_factor(
+            photographyTools.sensor_sizes["APS-C C"]
+        )
+    ).toBe(27);
 });
