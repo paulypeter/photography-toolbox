@@ -15,7 +15,7 @@ a, .menu{
 .nav {
     position: static;
     width: 100%;
-    background: blue;
+    background: rgb(95, 95, 95);
     margin: 0 auto;
     padding: 10px;
     color: white;
@@ -33,12 +33,12 @@ a, .menu{
     border-radius: 5px;
     margin: 5px;
     width:auto;
-    border: 1px solid blue;
+    border: 1px solid #959595;
 }
 
 .card-title {
     padding: 10px;
-    background-color: blue;
+    background-color: #959595;
     color: white;
 }
 
