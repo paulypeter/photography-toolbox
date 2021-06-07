@@ -1,5 +1,6 @@
 * {
     margin: 0 auto;
+    font: "Helvetica";
 }
 
 body {
@@ -8,24 +9,31 @@ body {
 
 a, .menu{
     color: white;
-    font-size: larger;
+    font-size:large;
     cursor: pointer;
 }
 
 .nav {
-    position: static;
+    /* position: static; */
     width: 100%;
     background: rgb(95, 95, 95);
-    margin: 0 auto;
+    margin: auto;
     padding: 10px;
     color: white;
     overflow: none;
+    height:22px;
 }
 
-.menu, .topbar-title {
+.menu {
     float: left;
     padding-left: 10px;
     padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+.topbar-title {
+    float: left;
+    padding-top: 9px;
 }
 
 .card {
