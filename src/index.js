@@ -19,7 +19,7 @@ module.exports = {
     // exposure
     ISO_SPEEDS,
     SHUTTER_SPEEDS,
-    APERTURES,
+    F_STOPS,
     number_of_third_steps,
     exposure_value
 }
