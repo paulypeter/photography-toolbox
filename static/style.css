@@ -29,10 +29,9 @@ a, .menu{
 }
 
 .card {
-    position: absolute;
+    float: left;
     border-radius: 5px;
     margin: 5px;
-    width:auto;
     border: 1px solid #959595;
 }
 
