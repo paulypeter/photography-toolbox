@@ -17,7 +17,7 @@ normal_focal_length = sensor_size => Math.round(diagonal(sensor_size))
 
 hyperfocal = (focal_length, f_stop, sensor_size) => (focal_length ** 2) / f_stop / coc(sensor_size)
 
-crop_factor = (sensor_size) => diagonal([24, 36]) / diagonal(sensor_size)
+crop_factor = sensor_size => Number((diagonal([24, 36]) / diagonal(sensor_size)).toFixed(1))
 
 diagonal = sensor_size => Math.sqrt(sensor_size[0] ** 2 + sensor_size[1] ** 2)
 
