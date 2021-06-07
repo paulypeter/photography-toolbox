@@ -16,7 +16,7 @@ SHUTTER_SPEEDS = [
     "4", "5", "6", "8", "10", "13", "15", "20", "25", "30", "B"
 ]
 
-APERTURES = [
+F_STOPS = [
     "91", "81", "72", "64", "57", "51", "45", "40", "36", "32", "29",
     "25", "22", "20", "18", "16", "14", "13", "11", "10", "9", "8",
     "7.1", "6.3", "5.6", "5.0", "4.5", "4.0", "3.5", "3.2", "2.8",
@@ -35,8 +35,8 @@ get_float_from_speed_str = str => {
     return res
 }
 
-exposure_value = (aperture, shutter_speed, iso_speed = 100) => {
-    ev_s = Math.round(Math.log2((aperture ** 2) / shutter_speed))
+exposure_value = (f_stop, shutter_speed, iso_speed = 100) => {
+    ev_s = Math.round(Math.log2((f_stop ** 2) / shutter_speed))
     if (iso_speed !== 100) {
         ev_s +=  Math.log2(iso_speed / 100)
     }

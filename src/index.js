@@ -11,14 +11,15 @@ module.exports = {
     hyperfocal,
     equiv_focal_length,
     normal_focal_length,
+    dof,
     // flash
     guide_number,
     flash_max_distance,
-    flash_aperture,
+    flash_f_stop,
     // exposure
     ISO_SPEEDS,
     SHUTTER_SPEEDS,
-    APERTURES,
+    F_STOPS,
     number_of_third_steps,
     exposure_value
 }
