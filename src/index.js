@@ -11,6 +11,7 @@ module.exports = {
     hyperfocal,
     equiv_focal_length,
     normal_focal_length,
+    dof,
     // flash
     guide_number,
     flash_max_distance,

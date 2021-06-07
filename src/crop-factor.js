@@ -22,3 +22,7 @@ crop_factor = (sensor_size) => diagonal([24, 36]) / diagonal(sensor_size)
 diagonal = sensor_size => Math.sqrt(sensor_size[0] ** 2 + sensor_size[1] ** 2)
 
 coc = sensor_size => Number((diagonal(sensor_size) / 1500).toFixed(3))
+
+dof = (sensor_size, distance, f_stop, focal_length) => {
+	return 2 * (distance ** 2) * f_stop * coc(sensor_size) / (focal_length ** 2)
+}
