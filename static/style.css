@@ -38,8 +38,11 @@ a, .menu{
 
 .card-title {
     padding: 10px;
+    font-size: medium;
+    text-decoration: none;
     background-color: #959595;
     color: white;
+    display: inline-block;
 }
 
 .card-content {
