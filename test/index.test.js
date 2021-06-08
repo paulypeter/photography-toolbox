@@ -69,12 +69,12 @@ test("Returns correct normal focal length", () => {
 test("Returns correct stop distance", () => {
     expect(
         photographyTools.number_of_third_steps(
-            photographyTools.ISO_SPEEDS, 100, 400
+            photographyTools.ISO_SPEEDS, "100", "400"
         )
     ).toBe(6);
     expect(
         photographyTools.number_of_third_steps(
-            photographyTools.ISO_SPEEDS, 800, 250
+            photographyTools.ISO_SPEEDS, "800", "250"
         )
     ).toBe(-5);
     expect(
@@ -120,6 +120,29 @@ test("Returns correct float for speed str", () => {
             "10"
         )
     ).toBe(10);
+});
+
+test("Returns correct closest speed setting", () => {
+    expect(
+        photographyTools.find_nearest(
+            photographyTools.SHUTTER_SPEEDS, 35
+        )
+    ).toBe("B");
+    expect(
+        photographyTools.find_nearest(
+            photographyTools.SHUTTER_SPEEDS, 0.005
+        )
+    ).toBe("1/200");
+    expect(
+        photographyTools.find_nearest(
+            photographyTools.SHUTTER_SPEEDS, "1/120"
+        )
+    ).toBe("1/125");
+    expect(
+        photographyTools.find_nearest(
+            photographyTools.SHUTTER_SPEEDS, 1.2
+        )
+    ).toBe("1.3");
 });
 
 // flash
