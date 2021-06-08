@@ -86,7 +86,17 @@ test("Returns correct stop distance", () => {
         photographyTools.number_of_third_steps(
             photographyTools.SHUTTER_SPEEDS, "1.3", "1/10"
         )
-    ).toBe(-10);
+    ).toBe(-11);
+    expect(
+        photographyTools.number_of_third_steps(
+            photographyTools.F_STOPS, "20", "9"
+        )
+    ).toBe(7);
+    expect(
+        photographyTools.number_of_third_steps(
+            photographyTools.F_STOPS, "1.2", "2.5"
+        )
+    ).toBe(-6);
 });
 
 // flash
