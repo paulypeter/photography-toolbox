@@ -1,10 +1,10 @@
 // methods concerning exposure conversions
 
 ISO_SPEEDS = [
-    25, 32, 40, 50, 64, 80, 100, 125, 160, 200, 250, 320,
-    400, 500, 640, 800, 1000, 1250, 1600, 2000, 2500, 3200,
-    4000, 5000, 6400, 8000, 10000, 12500, 16000, 20000, 25000, 32000,
-    40000, 50000, 64000, 80000, 100000, 125000, 160000, 200000
+    "25", "32", "40", "50", "64", "80", "100", "125", "160", "200", "250", "320",
+    "400", "500", "640", "800", "1000", "1250", "1600", "2000", "2500", "3200",
+    "4000", "5000", "6400", "8000", "10000", "12500", "16000", "20000", "25000", "32000",
+    "40000", "50000", "64000", "80000", "100000", "125000", "160000", "200000"
 ]
 
 SHUTTER_SPEEDS = [
@@ -41,4 +41,18 @@ exposure_value = (f_stop, shutter_speed, iso_speed = 100) => {
         ev_s +=  Math.log2(iso_speed / 100)
     }
     return ev_s
+}
+
+find_nearest = (setting, value) => {
+    if (setting.indexOf(value.toString()) > -1) {
+        return value
+    }
+    closest = (i, j) => {
+        diff_i = Math.abs(get_float_from_speed_str(i) - value);
+        diff_j = Math.abs(get_float_from_speed_str(j) - value);
+
+        return diff_i < diff_j ? i : j;
+    }
+
+    return setting.reduce(closest);
 }
