@@ -21,7 +21,8 @@ module.exports = {
     SHUTTER_SPEEDS,
     F_STOPS,
     number_of_third_steps,
-    exposure_value
+    exposure_value,
+    find_nearest
 }
 
 console.log(crop_factor(sensor_sizes["APS-C C"]))
