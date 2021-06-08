@@ -99,6 +99,29 @@ test("Returns correct stop distance", () => {
     ).toBe(-6);
 });
 
+test("Returns correct float for speed str", () => {
+    expect(
+        photographyTools.get_float_from_speed_str(
+            "1/200"
+        )
+    ).toBe(0.005);
+    expect(
+        photographyTools.get_float_from_speed_str(
+            "1.4"
+        )
+    ).toBe(1.4);
+    expect(
+        photographyTools.get_float_from_speed_str(
+            "1/8"
+        )
+    ).toBe(0.125);
+    expect(
+        photographyTools.get_float_from_speed_str(
+            "10"
+        )
+    ).toBe(10);
+});
+
 // flash
 test("Returns correct maximum flash distance", () => {
     expect(
