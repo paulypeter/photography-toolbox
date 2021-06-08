@@ -35,6 +35,13 @@ get_float_from_speed_str = str => {
     return res
 }
 
+get_str_from_speed_float = value => {
+    if (value <= 0.25) {
+        return "1/" + (1 / value).toString()
+    }
+    return value.toString()
+}
+
 exposure_value = (f_stop, shutter_speed, iso_speed = 100) => {
     ev_s = Math.round(Math.log2((f_stop ** 2) / shutter_speed))
     if (iso_speed !== 100) {
@@ -44,7 +51,7 @@ exposure_value = (f_stop, shutter_speed, iso_speed = 100) => {
 }
 
 find_nearest = (setting, value) => {
-    if (setting.indexOf(value.toString()) > -1) {
+    if (setting.indexOf(get_str_from_speed_float(value)) > -1) {
         return value
     }
     closest = (i, j) => {
