@@ -52,7 +52,7 @@ exposure_value = (f_stop, shutter_speed, iso_speed = 100) => {
 
 find_nearest = (setting, value) => {
     if (setting.indexOf(get_str_from_speed_float(value)) > -1) {
-        return value
+        return get_str_from_speed_float(value)
     }
     closest = (i, j) => {
         diff_i = Math.abs(get_float_from_speed_str(i) - value);
