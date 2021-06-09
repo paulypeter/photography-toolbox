@@ -127,7 +127,7 @@ test("Returns correct closest speed setting", () => {
         photographyTools.find_nearest(
             photographyTools.SHUTTER_SPEEDS, 35
         )
-    ).toBe("B");
+    ).toBe("30");
     expect(
         photographyTools.find_nearest(
             photographyTools.SHUTTER_SPEEDS, 0.005
@@ -135,7 +135,7 @@ test("Returns correct closest speed setting", () => {
     ).toBe("1/200");
     expect(
         photographyTools.find_nearest(
-            photographyTools.SHUTTER_SPEEDS, "1/120"
+            photographyTools.SHUTTER_SPEEDS, 0.008
         )
     ).toBe("1/125");
     expect(
