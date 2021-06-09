@@ -1,10 +1,10 @@
 // methods concerning exposure conversions
 
 ISO_SPEEDS = [
-    25, 32, 40, 50, 64, 80, 100, 125, 160, 200, 250, 320,
-    400, 500, 640, 800, 1000, 1250, 1600, 2000, 2500, 3200,
-    4000, 5000, 6400, 8000, 10000, 12500, 16000, 20000, 25000, 32000,
-    40000, 50000, 64000, 80000, 100000, 125000, 160000, 200000
+    "25", "32", "40", "50", "64", "80", "100", "125", "160", "200", "250", "320",
+    "400", "500", "640", "800", "1000", "1250", "1600", "2000", "2500", "3200",
+    "4000", "5000", "6400", "8000", "10000", "12500", "16000", "20000", "25000", "32000",
+    "40000", "50000", "64000", "80000", "100000", "125000", "160000", "200000"
 ]
 
 SHUTTER_SPEEDS = [
@@ -13,7 +13,7 @@ SHUTTER_SPEEDS = [
     "1/250", "1/200", "1/160", "1/125", "1/100", "1/80", "1/60", "1/50", "1/40",
     "1/30", "1/25", "1/20", "1/15", "1/13", "1/10", "1/8", "1/6", "1/5", "1/4",
     "0.3", "0.4", "0.5", "0.6", "0.8", "1", "1.3", "1.6", "2", "2.5", "3.2",
-    "4", "5", "6", "8", "10", "13", "15", "20", "25", "30", "B"
+    "4", "5", "6", "8", "10", "13", "15", "20", "25", "30"
 ]
 
 F_STOPS = [
@@ -35,10 +35,31 @@ get_float_from_speed_str = str => {
     return res
 }
 
+get_str_from_speed_float = value => {
+    if (value <= 0.25) {
+        return "1/" + (1 / value).toString()
+    }
+    return value.toString()
+}
+
 exposure_value = (f_stop, shutter_speed, iso_speed = 100) => {
     ev_s = Math.round(Math.log2((f_stop ** 2) / shutter_speed))
     if (iso_speed !== 100) {
         ev_s +=  Math.log2(iso_speed / 100)
     }
     return ev_s
+}
+
+find_nearest = (setting, value) => {
+    if (setting.indexOf(get_str_from_speed_float(value)) > -1) {
+        return get_str_from_speed_float(value)
+    }
+    closest = (i, j) => {
+        diff_i = Math.abs(get_float_from_speed_str(i) - value);
+        diff_j = Math.abs(get_float_from_speed_str(j) - value);
+
+        return diff_i < diff_j ? i : j;
+    }
+
+    return setting.reduce(closest);
 }
