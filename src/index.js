@@ -12,6 +12,7 @@ module.exports = {
     equiv_focal_length,
     normal_focal_length,
     dof,
+    aov,
     // flash
     guide_number,
     flash_max_distance,
