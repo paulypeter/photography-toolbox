@@ -22,6 +22,7 @@ module.exports = {
     SHUTTER_SPEEDS,
     F_STOPS,
     get_float_from_speed_str,
+    get_str_from_speed_float,
     number_of_third_steps,
     exposure_value,
     find_nearest
