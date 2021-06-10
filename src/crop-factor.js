@@ -26,3 +26,14 @@ coc = sensor_size => Number((diagonal(sensor_size) / 1500).toFixed(3))
 dof = (sensor_size, distance, f_stop, focal_length) => {
 	return 2 * (distance ** 2) * f_stop * coc(sensor_size) / (focal_length ** 2)
 }
+
+// angle of view for a given sensor dimension
+aov_dim = (dimension, focal_length) => Math.round(2 * Math.atan(dimension / (2 * focal_length)) * 180 / Math.PI)
+
+aov = (sensor_size, focal_length) => {
+	return [
+		aov_dim(sensor_size[0], focal_length),
+		aov_dim(sensor_size[1], focal_length),
+		aov_dim(diagonal(sensor_size), focal_length),
+	]
+}

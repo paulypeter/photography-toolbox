@@ -65,6 +65,24 @@ test("Returns correct normal focal length", () => {
     ).toBe(27);
 });
 
+test("Returns correct angles of view", () => {
+    expect(
+        photographyTools.aov(
+            photographyTools.sensor_sizes["35mm"], 50
+        )
+    ).toStrictEqual([ 27, 40, 47 ]);
+    expect(
+        photographyTools.aov(
+            photographyTools.sensor_sizes["APS-C C"], 30
+        )
+    ).toStrictEqual([ 28, 41, 48 ]);
+    expect(
+        photographyTools.aov(
+            photographyTools.sensor_sizes["4/3"], 50
+        )
+    ).toStrictEqual([ 15, 20, 25 ]);
+});
+
 // exposure
 test("Returns correct stop distance", () => {
     expect(
