@@ -192,10 +192,10 @@ test("Returns correct minimum flash guide number", () => {
         photographyTools.guide_number(
             7.5, 5.0
         )
-    ).toBe(37.5);
+    ).toBe(38);
     expect(
         photographyTools.guide_number(
             6, 1.4
         )
-    ).toBe(8.4);
+    ).toBe(8);
 });
