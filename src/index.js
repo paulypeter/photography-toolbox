@@ -20,6 +20,7 @@ module.exports = {
     ISO_SPEEDS,
     SHUTTER_SPEEDS,
     F_STOPS,
+    get_float_from_speed_str,
     number_of_third_steps,
     exposure_value,
     find_nearest
