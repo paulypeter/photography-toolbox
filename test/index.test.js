@@ -140,6 +140,29 @@ test("Returns correct float for speed str", () => {
     ).toBe(10);
 });
 
+test("Returns correct string for speed float", () => {
+    expect(
+        photographyTools.get_str_from_speed_float(
+            0.005
+        )
+    ).toBe("1/200");
+    expect(
+        photographyTools.get_str_from_speed_float(
+            0.3
+        )
+    ).toBe("0.3");
+    expect(
+        photographyTools.get_str_from_speed_float(
+            0.125
+        )
+    ).toBe("1/8");
+    expect(
+        photographyTools.get_str_from_speed_float(
+            10
+        )
+    ).toBe("10");
+});
+
 test("Returns correct closest speed setting", () => {
     expect(
         photographyTools.find_nearest(
