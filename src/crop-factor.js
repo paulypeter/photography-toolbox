@@ -27,6 +27,24 @@ dof = (sensor_size, distance, f_stop, focal_length) => {
 	return 2 * (distance ** 2) * f_stop * coc(sensor_size) / (focal_length ** 2)
 }
 
+dof_near = (sensor_size, distance, focal_length, f_stop) => {
+	hyperfocal_dist = hyperfocal(focal_length, f_stop, sensor_size)
+	return Number(
+		(hyperfocal_dist * distance /
+			(hyperfocal_dist + distance - focal_length)
+		).toFixed(2)
+	)
+}
+
+dof_far = (sensor_size, distance, focal_length, f_stop) => {
+	hyperfocal_dist = hyperfocal(focal_length, f_stop, sensor_size)
+	return (
+		hyperfocal_dist * distance /
+		(hyperfocal_dist - distance + focal_length)
+	)
+
+}
+
 // angle of view for a given sensor dimension
 aov_dim = (dimension, focal_length) => Math.round(2 * Math.atan(dimension / (2 * focal_length)) * 180 / Math.PI)
 
