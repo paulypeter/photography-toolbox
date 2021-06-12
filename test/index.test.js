@@ -83,6 +83,29 @@ test("Returns correct normal focal length", () => {
     ).toBe(27);
 });
 
+test("Returns correct equivalent focal length", () => {
+    expect(
+        photographyTools.equiv_focal_length(
+            10, 1.6
+        )
+    ).toBe(16);
+    expect(
+        photographyTools.equiv_focal_length(
+            50, 1.0
+        )
+    ).toBe(50);
+    expect(
+        photographyTools.equiv_focal_length(
+            50, 1.5
+        )
+    ).toBe(75);
+    expect(
+        photographyTools.equiv_focal_length(
+            200, 1.3
+        )
+    ).toBe(260);
+});
+
 test("Returns correct angles of view", () => {
     expect(
         photographyTools.aov(
