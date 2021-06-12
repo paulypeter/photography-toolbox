@@ -45,7 +45,7 @@ get_str_from_speed_float = value => {
 exposure_value = (f_stop, shutter_speed, iso_speed = 100) => {
     ev_s = Math.round(Math.log2((f_stop ** 2) / shutter_speed))
     if (iso_speed !== 100) {
-        ev_s +=  Math.log2(iso_speed / 100)
+        ev_s -=  Math.log2(iso_speed / 100)
     }
     return Math.round(ev_s)
 }
