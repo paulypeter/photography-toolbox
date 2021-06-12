@@ -47,6 +47,24 @@ test("Returns correct CoC", () => {
     ).toBe(0.018);
 });
 
+test("Returns correct DoF", () => {
+    expect(
+        photographyTools.dof(
+            photographyTools.sensor_sizes["APS-C C"], 20000, 4, 85
+        )
+    ).toBe(8.26);
+    expect(
+        photographyTools.dof(
+            photographyTools.sensor_sizes["35mm"], 10000, 1.8, 50
+        )
+    ).toBe(4.34);
+    expect(
+        photographyTools.dof(
+            photographyTools.sensor_sizes["35mm"], 35000, 2.8, 200
+        )
+    ).toBe(4.97);
+});
+
 test("Returns correct normal focal length", () => {
     expect(
         photographyTools.normal_focal_length(
@@ -184,6 +202,29 @@ test("Returns correct closest speed setting", () => {
             photographyTools.SHUTTER_SPEEDS, 1.2
         )
     ).toBe("1.3");
+});
+
+test("Returns correct exposure value", () => {
+    expect(
+        photographyTools.exposure_value(
+            4, 1/200
+        )
+    ).toBe(12);
+    expect(
+        photographyTools.exposure_value(
+            2.8, 15, 400
+        )
+    ).toBe(-3);
+    expect(
+        photographyTools.exposure_value(
+            8, 1 / 60, 1600
+        )
+    ).toBe(8);
+    expect(
+        photographyTools.exposure_value(
+            1.0, 2, 50
+        )
+    ).toBe(0);
 });
 
 // flash
