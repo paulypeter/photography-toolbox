@@ -25,8 +25,11 @@ coc = sensor_size => Number((diagonal(sensor_size) / 1500).toFixed(3))
 
 dof = (sensor_size, distance, f_stop, focal_length) => {
 	return (
-		dof_far(sensor_size, distance, focal_length, f_stop) -
-		dof_near(sensor_size, distance, focal_length, f_stop)
+		Number(
+			(dof_far(sensor_size, distance, focal_length, f_stop) -
+				dof_near(sensor_size, distance, focal_length, f_stop)
+			).toFixed(2)
+		)
 	)
 }
 
