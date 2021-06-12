@@ -34,7 +34,7 @@ dof_near = (sensor_size, distance, focal_length, f_stop) => {
 	hyperfocal_dist = hyperfocal(focal_length, f_stop, sensor_size)
 	return Number(
 		(hyperfocal_dist * distance /
-			(hyperfocal_dist + distance - focal_length)
+			(hyperfocal_dist + distance - focal_length) / 1000
 		).toFixed(2)
 	)
 }
@@ -42,8 +42,9 @@ dof_near = (sensor_size, distance, focal_length, f_stop) => {
 dof_far = (sensor_size, distance, focal_length, f_stop) => {
 	hyperfocal_dist = hyperfocal(focal_length, f_stop, sensor_size)
 	return (
-		hyperfocal_dist * distance /
-		(hyperfocal_dist - distance + focal_length)
+		(hyperfocal_dist * distance /
+			(hyperfocal_dist - distance + focal_length) / 1000
+		).toFixed(2)
 	)
 
 }
