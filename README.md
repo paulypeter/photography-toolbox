@@ -6,6 +6,10 @@
 
 A toolbox for calculationg Depth of Field, Exposure and much more to come
 
+__This is still under development and should not be taken as absolutely correct.__
+
+At any point before a full release, expect results of calculations to change as methods might be replaced by others.
+
 ## Goal
 
 The goal for this project is to provide a wrapper for all calculations a photographer would like to make.
