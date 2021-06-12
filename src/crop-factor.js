@@ -11,7 +11,7 @@ sensor_sizes = {	// from wikipedia
 }
 
 // return Math.round(f * cf)
-equiv_focal_length = (focal_length, cf) =>  focal_length * cf
+equiv_focal_length = (focal_length, crop_factor) =>  Math.round(focal_length * crop_factor)
 
 normal_focal_length = sensor_size => Math.round(diagonal(sensor_size))
 
