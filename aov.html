@@ -10,7 +10,33 @@
     </div>
 </header>
 <link rel=stylesheet href=static/style.css type=text/css>
+<script src="src/crop-factor.js"></script>
+<script src="src/exposure.js"></script>
+<script src="js/Tools.js"></script>
 
 <script src="https://use.fontawesome.com/f35383e121.js"></script>
 
 <title>Photography Toolbox</title>
+
+<label for="sensor">Sensor format</label>
+<select id="sensor"></select>
+
+
+
+<label for=focal_length>Focal length</label>
+<input type="number" id=focal_length onchange="update_result()">
+
+<div class=result id=resulting_focal_length></div>
+
+<script>
+    sensors_size_select("sensor")
+    update_result = () => {
+        let focal_length = document.getElementById("focal_length").value
+        let sensor_size = JSON.parse(document.getElementById("sensor").value)
+        console.log(focal_length)
+        console.log(sensor_size)
+        document.getElementById("resulting_focal_length").innerHTML = (
+            equiv_focal_length(focal_length, crop_factor(sensor_size))
+        )
+    }
+</script>
