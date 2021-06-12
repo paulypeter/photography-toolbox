@@ -47,7 +47,7 @@ exposure_value = (f_stop, shutter_speed, iso_speed = 100) => {
     if (iso_speed !== 100) {
         ev_s +=  Math.log2(iso_speed / 100)
     }
-    return ev_s
+    return Math.round(ev_s)
 }
 
 find_nearest = (setting, value) => {
