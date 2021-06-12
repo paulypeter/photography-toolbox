@@ -7,3 +7,12 @@ sensors_size_select = id => {
         select.add(option)
     }
 }
+
+speed_select = (select_id, speed_list) => {
+    let select = document.getElementById(select_id)
+    speed_list.forEach(element => {
+        let option = document.createElement('option')
+        option.text = element
+        select.add(option)
+    });
+}
