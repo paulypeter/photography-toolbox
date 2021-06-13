@@ -13,6 +13,9 @@ speed_select = (select_id, speed_list) => {
     speed_list.forEach(element => {
         let option = document.createElement('option')
         option.text = element
+        if (["400", "1/250", "4.0"].includes(element)) {
+            option.selected = "selected"
+        }
         select.add(option)
     });
 }
