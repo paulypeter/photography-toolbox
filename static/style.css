@@ -67,3 +67,13 @@ a, .menu{
     cursor: pointer;
     outline: none;
 }
+
+.row {
+    margin:5px;
+    padding:0px;
+}
+
+.column {
+    float: left;
+    margin: 2px;
+}
