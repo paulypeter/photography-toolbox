@@ -250,6 +250,62 @@ test("Returns correct exposure value", () => {
     ).toBe(0);
 });
 
+test("Returns correct shutter speed", () => {
+    expect(
+        photographyTools.shutter_for_ev(
+            0, 1
+        )
+    ).toBe("1");
+    expect(
+        photographyTools.shutter_for_ev(
+            -3, 2
+        )
+    ).toBe("30");
+    expect(
+        photographyTools.shutter_for_ev(
+            10, 5.6, 200
+        )
+    ).toBe("1/60");
+    expect(
+        photographyTools.shutter_for_ev(
+            11, 4.5, 400
+        )
+    ).toBe("1/400");
+    expect(
+        photographyTools.shutter_for_ev(
+            10, 4.5, 250
+        )
+    ).toBe("1/125");
+});
+
+test("Returns correct f-stop", () => {
+    expect(
+        photographyTools.f_stop_for_ev(
+            0, 1
+        )
+    ).toBe("1.0");
+    expect(
+        photographyTools.f_stop_for_ev(
+            -3, 30
+        )
+    ).toBe("2.0");
+    expect(
+        photographyTools.f_stop_for_ev(
+            10, 1 / 60, 200
+        )
+    ).toBe("5.6");
+    expect(
+        photographyTools.f_stop_for_ev(
+            11, 1 / 400, 400
+        )
+    ).toBe("4.5");
+    expect(
+        photographyTools.f_stop_for_ev(
+            10, 1 / 125, 250
+        )
+    ).toBe("4.5");
+});
+
 // flash
 test("Returns correct maximum flash distance", () => {
     expect(
