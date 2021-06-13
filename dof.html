@@ -59,7 +59,7 @@
 
 <script>
     sensors_size_select("sensor")
-    speed_select("f_stop", F_STOPS)
+    speed_select("f_stop", F_STOPS.reverse())
     update_input = () => {
         document.getElementById("input").innerHTML = document.getElementById("distance").value
     }
