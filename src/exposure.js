@@ -50,6 +50,16 @@ exposure_value = (f_stop, shutter_speed, iso_speed = 100) => {
     return Math.round(ev_s)
 }
 
+shutter_for_ev = (ev, f_stop, iso_speed = 100) => {
+    shutter = 2 ** (Math.log2(f_stop ** 2) - ev - Math.log2(iso_speed / 100))
+    return find_nearest(SHUTTER_SPEEDS, shutter)
+}
+
+f_stop_for_ev = (ev, shutter_speed, iso_speed = 100) => {
+    f_stop = Math.sqrt(2 ** (Math.log2(shutter_speed) + ev + Math.log2(iso_speed / 100)))
+    return find_nearest(F_STOPS, f_stop)
+}
+
 find_nearest = (setting, value) => {
     if (setting.indexOf(get_str_from_speed_float(value)) > -1) {
         return get_str_from_speed_float(value)
