@@ -35,7 +35,7 @@
     </div>
     <div class=row>
         <label for=distance>Distance: <span id=input></span></label>
-        <input type="range" id=distance onchange="update_input(); update_result()">
+        <input type="range" id=distance onchange="update_input(); update_result()" min=1>
         <select id="distance_unit" onchange="update_result()">
             <option value=10>cm</option>
             <option value=100>dm</option>
