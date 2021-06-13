@@ -13,14 +13,61 @@
 </header>
 <link rel=stylesheet href=static/style.css type=text/css>
 <script src="src/crop-factor.js"></script>
+<script src="src/exposure.js"></script>
 <script src="js/Tools.js"></script>
 
 <script src="https://use.fontawesome.com/f35383e121.js"></script>
 
 <title>Depth of Field | Photography Toolbox</title>
 
-<select id="sensor"></select>
+<div class=form-container>
+    <div class=row>
+        <label for="sensor">Sensor format</label>
+        <select id="sensor" onchange="update_result()"></select>
+    </div>
+    <div class=row>
+        <label for=focal_length>Focal length</label>
+        <input type="number" id=focal_length onchange="update_result()">
+    </div>
+    <div class=row>
+        <label for="f_stop">F-stop</label>
+        <select id="f_stop" onchange="update_result()"></select>
+    </div>
+    <div class=row>
+        <label for=distance>Distance: <span id=input></span></label>
+        <input type="range" id=distance onchange="update_input(); update_result()">
+    </div>
+</div>
+<div class=form-container>
+    <div class=row>
+        <div class=column>Hyperfocal distance <span id=hyperfocal_dist></span> m</div><br>
+    </div>
+</div>
+<div class=form-container>
+    <div class=row>
+        <div class=column>Near limit <span id=near_limit></span> m</div>
+    </div>
+    <div class=row>
+        <div class=column>Far limit <span id=far_limit></span> m</div>
+    </div>
+</div>
 
 <script>
     sensors_size_select("sensor")
+    speed_select("f_stop", F_STOPS)
+    update_input = () => {
+        document.getElementById("input").innerHTML = document.getElementById("distance").value / 10
+    }
+    update_result = () => {
+        let focal_length = document.getElementById("focal_length").value
+        let sensor_size = JSON.parse(document.getElementById("sensor").value)
+        let f_stop = parseFloat(document.getElementById("f_stop").value)
+        let distance = parseInt(document.getElementById("distance").value) * 100
+        dof_far_result = dof_far(sensor_size, distance, focal_length, f_stop)
+        dof_near_result = dof_near(sensor_size, distance, focal_length, f_stop)
+        hyperfocal_dist = hyperfocal(focal_length, f_stop, sensor_size)
+        document.getElementById("near_limit").innerHTML = dof_near_result
+        document.getElementById("far_limit").innerHTML = dof_far_result
+        document.getElementById("hyperfocal_dist").innerHTML = hyperfocal_dist
+    }
 </script>
