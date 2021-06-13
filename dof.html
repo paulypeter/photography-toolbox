@@ -36,6 +36,11 @@
     <div class=row>
         <label for=distance>Distance: <span id=input></span></label>
         <input type="range" id=distance onchange="update_input(); update_result()">
+        <select id="distance_unit" onchange="update_result()">
+            <option value=10>cm</option>
+            <option value=100>dm</option>
+            <option value=1000>m</option>
+        </select>
     </div>
 </div>
 <div class=form-container>
@@ -56,16 +61,20 @@
     sensors_size_select("sensor")
     speed_select("f_stop", F_STOPS)
     update_input = () => {
-        document.getElementById("input").innerHTML = document.getElementById("distance").value / 10
+        document.getElementById("input").innerHTML = document.getElementById("distance").value
     }
     update_result = () => {
         let focal_length = document.getElementById("focal_length").value
         let sensor_size = JSON.parse(document.getElementById("sensor").value)
         let f_stop = parseFloat(document.getElementById("f_stop").value)
-        let distance = parseInt(document.getElementById("distance").value) * 100
+        let distance = (
+            parseInt(document.getElementById("distance").value) *
+            parseInt(document.getElementById("distance_unit").value)
+        )
         dof_far_result = dof_far(sensor_size, distance, focal_length, f_stop)
+        dof_far_result = dof_far_result < 0 ? Infinity : dof_far_result
         dof_near_result = dof_near(sensor_size, distance, focal_length, f_stop)
-        hyperfocal_dist = hyperfocal(focal_length, f_stop, sensor_size)
+        hyperfocal_dist = Number((hyperfocal(focal_length, f_stop, sensor_size) / 1000).toFixed(2))
         document.getElementById("near_limit").innerHTML = dof_near_result
         document.getElementById("far_limit").innerHTML = dof_far_result
         document.getElementById("hyperfocal_dist").innerHTML = hyperfocal_dist
