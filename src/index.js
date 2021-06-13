@@ -30,6 +30,3 @@ module.exports = {
     f_stop_for_ev,
     find_nearest
 }
-
-console.log(crop_factor(sensor_sizes["APS-C C"]))
-console.log(exposure_value(8, 1 / 250, 400))
