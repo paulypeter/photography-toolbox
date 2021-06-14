@@ -109,24 +109,24 @@ test("Returns correct closest speed setting", () => {
 
 test("Returns correct exposure value", () => {
     expect(
-        photographyTools.exposure_value(
+        Math.round(photographyTools.exposure_value(
             4, 1/200
-        )
+        ))
     ).toBe(12);
     expect(
-        photographyTools.exposure_value(
+        Math.round(photographyTools.exposure_value(
             2.8, 15, 400
-        )
+        ))
     ).toBe(-3);
     expect(
-        photographyTools.exposure_value(
+        Math.round(photographyTools.exposure_value(
             8, 1 / 60, 1600
-        )
+        ))
     ).toBe(8);
     expect(
-        photographyTools.exposure_value(
+        Math.round(photographyTools.exposure_value(
             1.0, 2, 50
-        )
+        ))
     ).toBe(0);
 });
 
@@ -184,4 +184,97 @@ test("Returns correct f-stop", () => {
             10, 1 / 125, 250
         )
     ).toBe("4.5");
+});
+
+test("Returns correct equivalent f-stop", () => {
+    expect(
+        photographyTools.equivalent_exposure(
+            {"f_stop": 4, "shutter": 1 / 100, "iso_speed": 400},
+            {"shutter": 1 / 100, "iso_speed": 400},
+            "f_stop"
+        )
+    ).toBe("4.0");
+    expect(
+        photographyTools.equivalent_exposure(
+            {"f_stop": 2.8, "shutter": 1 / 200, "iso_speed": 100},
+            {"shutter": 1 / 200, "iso_speed": 400},
+            "f_stop"
+        )
+    ).toBe("5.6");
+    expect(
+        photographyTools.equivalent_exposure(
+            {"f_stop": 4, "shutter": 1 / 800, "iso_speed": 200},
+            {"shutter": 1 / 800, "iso_speed": 320},
+            "f_stop"
+        )
+    ).toBe("5.0");
+    expect(
+        photographyTools.equivalent_exposure(
+            {"f_stop": 4, "shutter": 1 / 500, "iso_speed": 200},
+            {"shutter": 1 / 800, "iso_speed": 320},
+            "f_stop"
+        )
+    ).toBe("4.0");
+});
+
+test("Returns correct equivalent shutter speed", () => {
+    expect(
+        photographyTools.equivalent_exposure(
+            {"f_stop": 4, "shutter": 1 / 100, "iso_speed": 400},
+            {"f_stop": 4, "iso_speed": 400},
+            "shutter"
+        )
+    ).toBe("1/100");
+    expect(
+        photographyTools.equivalent_exposure(
+            {"f_stop": 5.6, "shutter": 1 / 100, "iso_speed": 100},
+            {"f_stop": 5.6, "iso_speed": 400},
+            "shutter"
+        )
+    ).toBe("1/400");
+    expect(
+        photographyTools.equivalent_exposure(
+            {"f_stop": 5.6, "shutter": 1 / 100, "iso_speed": 100},
+            {"f_stop": 5.6, "iso_speed": 320},
+            "shutter"
+        )
+    ).toBe("1/320");
+    expect(
+        photographyTools.equivalent_exposure(
+            {"f_stop": 8, "shutter": 1 / 30, "iso_speed": 200},
+            {"f_stop": 4, "iso_speed": 400},
+            "shutter"
+        )
+    ).toBe("1/250");
+});
+
+test("Returns correct equivalent ISO speed", () => {
+    expect(
+        photographyTools.equivalent_exposure(
+            {"f_stop": 4, "shutter": 1 / 100, "iso_speed": 400},
+            {"f_stop": 4, "shutter": 1 / 100},
+            "iso_speed"
+        )
+    ).toBe("400");
+    expect(
+        photographyTools.equivalent_exposure(
+            {"f_stop": 5.6, "shutter": 1 / 100, "iso_speed": 100},
+            {"f_stop": 5.6, "shutter": 1 / 320},
+            "iso_speed"
+        )
+    ).toBe("320");
+    expect(
+        photographyTools.equivalent_exposure(
+            {"f_stop": 5.6, "shutter": 1 / 100, "iso_speed": 100},
+            {"f_stop": 4, "shutter": 1 / 320},
+            "iso_speed"
+        )
+    ).toBe("160");
+    expect(
+        photographyTools.equivalent_exposure(
+            {"f_stop": 4, "shutter": 1 / 30, "iso_speed": 250},
+            {"f_stop": 3.2, "shutter": 1 / 100},
+            "iso_speed"
+        )
+    ).toBe("500");
 });
