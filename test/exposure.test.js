@@ -109,24 +109,24 @@ test("Returns correct closest speed setting", () => {
 
 test("Returns correct exposure value", () => {
     expect(
-        photographyTools.exposure_value(
+        Math.round(photographyTools.exposure_value(
             4, 1/200
-        )
+        ))
     ).toBe(12);
     expect(
-        photographyTools.exposure_value(
+        Math.round(photographyTools.exposure_value(
             2.8, 15, 400
-        )
+        ))
     ).toBe(-3);
     expect(
-        photographyTools.exposure_value(
+        Math.round(photographyTools.exposure_value(
             8, 1 / 60, 1600
-        )
+        ))
     ).toBe(8);
     expect(
-        photographyTools.exposure_value(
+        Math.round(photographyTools.exposure_value(
             1.0, 2, 50
-        )
+        ))
     ).toBe(0);
 });
 
