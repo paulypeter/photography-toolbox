@@ -28,5 +28,6 @@ module.exports = {
     exposure_value,
     shutter_for_ev,
     f_stop_for_ev,
+    equivalent_exposure,
     find_nearest
 }

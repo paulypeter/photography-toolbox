@@ -60,6 +60,11 @@ f_stop_for_ev = (ev, shutter_speed, iso_speed = 100) => {
     return find_nearest(F_STOPS, f_stop)
 }
 
+iso_speed_for_ev = (ev, shutter_speed, f_stop) => {
+    iso_speed = 2 ** (Math.log2(100 * (f_stop ** 2) / shutter_speed) - ev)
+    return find_nearest(ISO_SPEEDS, iso_speed)
+}
+
 find_nearest = (setting, value) => {
     if (setting.includes("1/8000") && value > 35) {
         return Math.round(value)
@@ -75,4 +80,23 @@ find_nearest = (setting, value) => {
     }
 
     return setting.reduce(closest);
+}
+
+/*
+ * @param original {"f_stop": f_stop, "shutter": shutter, "iso_speed": iso_speed}
+ * @param target {"f_stop": f_stop, "shutter": shutter, "iso_speed": iso_speed} ( two of the three)
+ * @param mode "shutter", "f_stop", or "iso_speed" -> the value to be calculated
+ *
+ */
+equivalent_exposure = (original, target, mode) => {
+    orig_ev = exposure_value(original.f_stop, original.shutter, original.iso_speed)
+    switch (mode) {
+        case "shutter":
+            return shutter_for_ev(orig_ev, target.f_stop, target.iso_speed)
+        case "f_stop":
+            return f_stop_for_ev(orig_ev, target.shutter, target.iso_speed)
+        case "iso_speed":
+            return iso_speed_for_ev(orig_ev, target.shutter, target.f_stop)
+
+    }
 }
