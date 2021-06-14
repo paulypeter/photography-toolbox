@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<header>
+    <nav>
+    <div class=nav>
+        <a><i class="fa fa-bars menu" aria-hidden="true"></i></a>
+        <div class=menu></div>
+        <a><i class="fa fa-camera menu"> Photography Toolbox</i></a>
+    </div>
+    </nav>
+</header>
+<link rel=stylesheet href=static/style.css type=text/css>
+<script src="src/crop-factor.js"></script>
+<script src="src/exposure.js"></script>
+<script src="js/Tools.js"></script>
+
+<script src="https://use.fontawesome.com/f35383e121.js"></script>
+
+<title>Priority modes | Photography Toolbox</title>
+<div onchange="toggle_input(); update_result()" class=row>
+    Setting choice:
+    <input type="radio" name=setting_choice id=set_shutter_speed value="set_shutter_speed">
+    <label for=set_shutter_speed>Shutter</label>
+    <input type="radio" name=setting_choice id=set_f_stop value="set_f_stop">
+    <label for=set_f_stop>F-Stop</label>
+</div>
+<div class=row>
+    <div class=column>
+        <label for="iso_speed">ISO</label>
+        <select id="iso_speed" onchange="update_result()"></select>
+    </div>
+    <div class=column id=f_stop_select>
+        <label for="f_stop">F-stop</label>
+        <select id="f_stop" onchange="update_result()"></select>
+    </div>
+    <div class=column id=shutter_speed_select>
+        <label for="shutter">Shutter speed</label>
+        <select id="shutter" onchange="update_result()"></select>
+    </div>
+</div>
+<br>
+<div class=row>
+    <div class=column><label for=ev>EV</label></div>
+    <input type="range" id=ev min=-6 max=21 step=1 value=12 onchange="update_input(); update_result()">
+    <div class=column><span id=ev_input></span></div>
+</div>
+<br>
+<div class=row>
+    result: <span id=result></span><span id=result_unit></span>
+</div>
+
+<script>
+    speed_select("f_stop", F_STOPS.reverse())
+    speed_select("shutter", SHUTTER_SPEEDS)
+    speed_select("iso_speed", ISO_SPEEDS)
+
+    let to_calculate = ""
+    window.onload = () => {
+        document.getElementById("set_shutter_speed").checked = true
+        document.getElementById("f_stop_select").style.display = "none"
+    }
+
+    toggle_input = () => {
+        if (document.getElementById("set_shutter_speed").checked) {
+            document.getElementById("shutter_speed_select").style.display = "block"
+            document.getElementById("f_stop_select").style.display = "none"
+            to_calculate = "shutter_speed"
+            document.getElementById("result_unit").innerHTML = ""
+        } else {
+            document.getElementById("shutter_speed_select").style.display = "none"
+            document.getElementById("f_stop_select").style.display = "block"
+            to_calculate = "f_stop"
+            document.getElementById("result_unit").innerHTML = " s"
+        }
+    }
+
+    update_input = () => {
+        document.getElementById("ev_input").innerHTML = document.getElementById("ev").value
+    }
+
+    update_result = () => {
+        let iso_speed = parseInt(document.getElementById("iso_speed").value)
+        let ev = parseInt(document.getElementById("ev").value)
+        let res = ""
+        if (document.getElementById("set_shutter_speed").checked) {
+            shutter_speed = get_float_from_speed_str(document.getElementById("shutter").value)
+            res = f_stop_for_ev(ev, shutter_speed, iso_speed)
+        } else {
+            f_stop = get_float_from_speed_str(document.getElementById("f_stop").value)
+            res = shutter_for_ev(ev, f_stop, iso_speed)
+        }
+        document.getElementById("result").innerHTML = res
+    }
+</script>
