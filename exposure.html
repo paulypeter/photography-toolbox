@@ -12,7 +12,29 @@
     </nav>
 </header>
 <link rel=stylesheet href=static/style.css type=text/css>
+<script src="src/crop-factor.js"></script>
+<script src="src/exposure.js"></script>
+<script src="js/Tools.js"></script>
 
 <script src="https://use.fontawesome.com/f35383e121.js"></script>
 
 <title>Exposure | Photography Toolbox</title>
+
+<div class=row>
+    <label for="f_stop">F-stop</label>
+    <select id="f_stop"></select>
+</div>
+<div class=row>
+    <label for="shutter">Shutter speed</label>
+    <select id="shutter" ></select>
+</div>
+<div class=row>
+    <label for="iso_speed">ISO</label>
+    <select id="iso_speed"></select>
+</div>
+
+<script>
+    speed_select("f_stop", F_STOPS.reverse())
+    speed_select("shutter", SHUTTER_SPEEDS)
+    speed_select("iso_speed", ISO_SPEEDS)
+</script>
