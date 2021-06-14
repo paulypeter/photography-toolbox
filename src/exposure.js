@@ -61,6 +61,9 @@ f_stop_for_ev = (ev, shutter_speed, iso_speed = 100) => {
 }
 
 find_nearest = (setting, value) => {
+    if (setting.includes("1/8000") && value > 35) {
+        return Math.round(value)
+    }
     if (setting.indexOf(get_str_from_speed_float(value)) > -1) {
         return get_str_from_speed_float(value)
     }
