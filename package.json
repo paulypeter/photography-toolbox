@@ -1,6 +1,6 @@
 {
   "name": "photography-toolbox",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A toolbox for calculationg Depth of Field, Exposure and much more to come ",
   "main": "./src/index.js",
   "scripts": {
