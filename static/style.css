@@ -15,7 +15,7 @@ a, .menu{
 
 .nav {
     /* position: static; */
-    width: 100%;
+    /* width: 100%; */
     background: rgb(95, 95, 95);
     margin: auto;
     padding: 10px;
@@ -89,4 +89,8 @@ input[type=range] {
     width: 15px;
     display: inline-block;
     margin-right: 10px;
+}
+
+.helplink {
+    float: right;
 }
