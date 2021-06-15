@@ -84,3 +84,9 @@ input[type=range] {
     margin-right: 15px;
     float: left;
 }
+
+.input {
+    width: 15px;
+    display: inline-block;
+    margin-right: 10px;
+}

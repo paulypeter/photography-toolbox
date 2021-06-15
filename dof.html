@@ -34,11 +34,12 @@
         <select id="f_stop" onchange="update_result()"></select>
     </div>
     <div class=row>
-        <label for=distance>Distance: <span id=input></span></label>
+        <div class=column><label for=distance>Distance: </label></div>
         <input type="range" id=distance onchange="update_input(); update_result()" min=1>
+        <div class=column><span id=input class=input></span></div>
         <select id="distance_unit" onchange="update_result()">
             <option value=10>cm</option>
-            <option value=100>dm</option>
+            <option value=100 selected>dm</option>
             <option value=1000>m</option>
         </select>
     </div>
@@ -78,5 +79,9 @@
         document.getElementById("near_limit").innerHTML = dof_near_result
         document.getElementById("far_limit").innerHTML = dof_far_result
         document.getElementById("hyperfocal_dist").innerHTML = hyperfocal_dist
+    }
+
+    window.onload = () => {
+        update_input()
     }
 </script>
