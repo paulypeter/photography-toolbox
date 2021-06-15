@@ -16,6 +16,16 @@ test("Returns correct maximum flash distance", () => {
             60, 4
         )
     ).toBe(15);
+    expect(
+        photographyTools.flash_max_distance(
+            60, 4, 400
+        )
+    ).toBe(30);
+    expect(
+        photographyTools.flash_max_distance(
+            56, 5.6, 200
+        )
+    ).toBe(14.14);
 });
 
 test("Returns correct minimum aperture for flash", () => {
@@ -34,6 +44,16 @@ test("Returns correct minimum aperture for flash", () => {
             60, 10
         )
     ).toBe("6.3");
+    expect(
+        photographyTools.flash_f_stop(
+            60, 15, 200
+        )
+    ).toBe("5.6");
+    expect(
+        photographyTools.flash_f_stop(
+            43, 10, 400
+        )
+    ).toBe("9");
 });
 
 test("Returns correct minimum flash guide number", () => {
@@ -52,4 +72,14 @@ test("Returns correct minimum flash guide number", () => {
             6, 1.4
         )
     ).toBe(8);
+    expect(
+        photographyTools.guide_number(
+            10, 1.4, 200
+        )
+    ).toBe(10);
+    expect(
+        photographyTools.guide_number(
+            10, 8, 400
+        )
+    ).toBe(40);
 });
