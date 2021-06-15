@@ -20,3 +20,88 @@
 <script src="https://use.fontawesome.com/f35383e121.js"></script>
 
 <title>Flash | Photography Toolbox</title>
+
+<div class=row>
+    <div class=column>Calculate:</div>
+    <div onchange="toggle_input(); update_result()" class=row>
+        <input type="radio" name=setting_choice id=get_guide_number value="guide_number">
+        <label for=get_guide_number>Guide Number</label>
+        <input type="radio" name=setting_choice id=get_f_stop value="f_stop" checked>
+        <label for=get_f_stop>F-Stop</label>
+        <input type="radio" name=setting_choice id=get_distance value="distance">
+        <label for=get_distance>Distance</label>
+    </div>
+</div>
+<div class=row>
+    <div class=column>
+        <label for="iso_speed">ISO</label>
+        <select id="iso_speed" onchange="update_result()"></select>
+    </div>
+</div>
+<br>
+<div class=row>
+    <div class=column id=guide_number_input>
+        <label for=guide_number>Guide Number</label>
+        <input type=number id=guide_number onchange="update_result()">
+    </div>
+    <div class=column id=f_stop_input>
+        <label for="f_stop">F-stop</label>
+        <select id="f_stop" onchange="update_result()"></select>
+    </div>
+    <div class=column id=distance_input>
+        <label for=distance>Distance</label>
+        <input type=number id=distance onchange="update_result()">
+    </div>
+</div>
+<br>
+<div class=row>
+    result: <span id=result></span><span id=result_unit></span>
+</div>
+
+<script>
+    speed_select("f_stop", F_STOPS.reverse())
+    speed_select("iso_speed", ISO_SPEEDS)
+
+    let mode = ""
+    toggle_input = () => {
+        let options = document.getElementsByName("setting_choice")
+        options.forEach(element => {
+            if (element.checked) {
+                mode = element.value
+                document.getElementById(element.value + "_input").style.display = "none"
+            } else {
+                document.getElementById(element.value + "_input").style.display = "block"
+            }
+        });
+    }
+
+    get_input = () => {
+        let settings = ["distance", "guide_number", "f_stop", "iso_speed"]
+        let input = {}
+        settings.forEach(element => {
+            input[element] = document.getElementById(element).value
+        })
+        return input
+    }
+
+    get_result = () => {
+        let input = get_input()
+        switch(mode) {
+            case "f_stop":
+                return flash_f_stop(input.guide_number, input.distance, input.iso_speed)
+            case "distance":
+                return flash_max_distance(input.guide_number, input.f_stop, input.iso_speed)
+            case "guide_number":
+                return guide_number(input.distance, input.f_stop, input.iso_speed)
+        }
+    }
+
+    update_result = () => {
+        document.getElementById("result").innerHTML = get_result()
+        document.getElementById("result_unit").innerHTML = mode == "distance" ? " m" : ""
+    }
+
+    window.onload = () => {
+        toggle_input()
+    }
+</script>
