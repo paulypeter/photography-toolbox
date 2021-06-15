@@ -14,18 +14,34 @@
 <link rel=stylesheet href=../static/style.css type=text/css>
 
 <script src="https://use.fontawesome.com/f35383e121.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 
 <title>Calculations | Photography Toolbox</title>
 
 <h1>Calculation methods used in photography-toolbox</h1>
 
-This site documents the methods used to calculate results in photography-toolbox</photography-toolbox>
+This site documents the methods used to calculate results in photography-toolbox.
 
 <h2>Exposure</h2>
 
+\( EV = \log_2{fstop ^ 2 \over t} - \log_2{ISO \over 100}\)
+<br>
+where \( t\) is the shutter speed
+
 <h2>Flash exposure</h2>
 
+Generally, the following calculation is used:
+<br><br>
+\(GN = distance * fstop \)
+<br>
+The result is then multiplied or divided (for required guide number) by \(\sqrt{ISO \over 100}\)
+
 <h2>Circle of Confusion</h2>
+
+Currently (as of v0.2.2), the Circle of Confusion is calculated as \(d/1500\).
+This may change in later versions! There might be the option to choose your calculation method later as well.
 
 <h2>Depth of Field</h2>
 
