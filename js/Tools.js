@@ -19,3 +19,6 @@ speed_select = (select_id, speed_list) => {
         select.add(option)
     });
 }
+
+// ignore require statements in .js files
+require = path => {}
