@@ -21,9 +21,9 @@
 <title>Priority modes | Photography Toolbox</title>
 <div onchange="toggle_input(); update_result()" class=row>
     Setting choice:
-    <input type="radio" name=setting_choice id=set_shutter_speed value="set_shutter_speed">
+    <input type="radio" name=setting_choice id=set_shutter_speed value="shutter">
     <label for=set_shutter_speed>Shutter</label>
-    <input type="radio" name=setting_choice id=set_f_stop value="set_f_stop">
+    <input type="radio" name=setting_choice id=set_f_stop value="f_stop">
     <label for=set_f_stop>F-Stop</label>
 </div>
 <div class=row>
@@ -35,7 +35,7 @@
         <label for="f_stop">F-stop</label>
         <select id="f_stop" onchange="update_result()"></select>
     </div>
-    <div class=column id=shutter_speed_select>
+    <div class=column id=shutter_select>
         <label for="shutter">Shutter speed</label>
         <select id="shutter" onchange="update_result()"></select>
     </div>
@@ -56,24 +56,24 @@
     speed_select("shutter", SHUTTER_SPEEDS)
     speed_select("iso_speed", ISO_SPEEDS)
 
-    let to_calculate = ""
+    let input_setting = ""
     window.onload = () => {
         document.getElementById("set_shutter_speed").checked = true
         document.getElementById("f_stop_select").style.display = "none"
+        update_input()
     }
 
     toggle_input = () => {
-        if (document.getElementById("set_shutter_speed").checked) {
-            document.getElementById("shutter_speed_select").style.display = "block"
-            document.getElementById("f_stop_select").style.display = "none"
-            to_calculate = "shutter_speed"
-            document.getElementById("result_unit").innerHTML = ""
-        } else {
-            document.getElementById("shutter_speed_select").style.display = "none"
-            document.getElementById("f_stop_select").style.display = "block"
-            to_calculate = "f_stop"
-            document.getElementById("result_unit").innerHTML = " s"
-        }
+        let options = document.getElementsByName("setting_choice")
+        options.forEach(element => {
+            if (element.checked) {
+                input_setting = element.value
+                document.getElementById(element.value + "_select").style.display = "block"
+            } else {
+                document.getElementById(element.value + "_select").style.display = "none"
+            }
+        });
+        document.getElementById("result_unit").innerHTML = input_setting == "shutter" ? "" : " s"
     }
 
     update_input = () => {
