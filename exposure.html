@@ -20,21 +20,85 @@
 
 <title>Exposure | Photography Toolbox</title>
 
+<h3>Equivalent exposure</h1>
 <div class=row>
-    <label for="f_stop">F-stop</label>
-    <select id="f_stop"></select>
+    <div class=column>Original settings:</div>
+    <div class=column>
+        <label for="shutter">Shutter speed</label>
+        <select id="shutter" onchange="update_result()"></select>
+    </div>
+    <div class=column>
+        <label for="f_stop">F-stop</label>
+        <select id="f_stop" onchange="update_result()"></select>
+    </div>
+    <div class=column>
+        <label for="iso_speed">ISO</label>
+        <select id="iso_speed" onchange="update_result()"></select>
+    </div>
 </div>
+<br>
 <div class=row>
-    <label for="shutter">Shutter speed</label>
-    <select id="shutter" ></select>
+    <div class=column>Calculate:</div>
+    <div onchange="toggle_input(); update_result()" class=row>
+        <input type="radio" name=setting_choice id=get_shutter_speed value="shutter">
+        <label for=set_shutter_speed>Shutter</label>
+        <input type="radio" name=setting_choice id=get_f_stop value="f_stop">
+        <label for=set_f_stop>F-Stop</label>
+        <input type="radio" name=setting_choice id=get_iso_speed value="iso_speed">
+        <label for=set_iso_speed>ISO Speed</label>
+    </div>
 </div>
+<br>
 <div class=row>
-    <label for="iso_speed">ISO</label>
-    <select id="iso_speed"></select>
+    <div class=column>Target settings:</div>
+    <div class=column id=target_shutter_select>
+        <label for="target_shutter">Shutter speed</label>
+        <select id="target_shutter" onchange="update_result()"></select>
+    </div>
+    <div class=column id=target_f_stop_select>
+        <label for="target_f_stop">F-stop</label>
+        <select id="target_f_stop" onchange="update_result()"></select>
+    </div>
+    <div class=column id=target_iso_speed_select>
+        <label for="target_iso_speed">ISO</label>
+        <select id="target_iso_speed" onchange="update_result()"></select>
+    </div>
+</div>
+<br>
+<div class=row>
+    result: <span id=result></span><span id=result_unit></span>
 </div>
 
 <script>
     speed_select("f_stop", F_STOPS.reverse())
+    speed_select("target_f_stop", F_STOPS.reverse())
     speed_select("shutter", SHUTTER_SPEEDS)
+    speed_select("target_shutter", SHUTTER_SPEEDS)
     speed_select("iso_speed", ISO_SPEEDS)
+    speed_select("target_iso_speed", ISO_SPEEDS)
+
+    let mode = ""
+    toggle_input = () => {
+        let options = document.getElementsByName("setting_choice")
+        options.forEach(element => {
+            if (element.checked) {
+                mode = element.value
+                document.getElementById("target_" + element.value + "_select").style.display = "none"
+            } else {
+                document.getElementById("target_" + element.value + "_select").style.display = "block"
+            }
+        });
+    }
+
+    update_result = () => {
+        let settings = ["f_stop", "shutter", "iso_speed"]
+        let origin = {}
+        let target = {}
+        settings.forEach(element => {
+            origin[element] = get_float_from_speed_str(document.getElementById(element).value)
+            target[element] = get_float_from_speed_str(document.getElementById("target_" + element).value)
+        })
+        document.getElementById("result_unit").innerHTML = mode == "shutter" ? " s" : ""
+        document.getElementById("result").innerHTML = equivalent_exposure(origin, target, mode)
+    }
 </script>
