@@ -1,6 +1,7 @@
 const CROP = require('./crop-factor')
 const FLASH = require('./flash')
 const EXPOSURE = require('./exposure')
+const SUN = require('./sun')
 
 module.exports = {
     // sensor
