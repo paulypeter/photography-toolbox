@@ -90,7 +90,7 @@ solar_azimuth = (zen_ang, lat, decl) => {
 set_rise_ha = (lat, decl) => {
     return rad_to_deg(
         Math.acos(
-            Math.cos(deg_to_rad(90.833)) /
+            Math.cos(deg_to_rad(90.8333)) /
             Math.cos(deg_to_rad(lat)) * Math.cos(decl) -
             Math.tan(deg_to_rad(lat)) * Math.tan(decl)
         )
