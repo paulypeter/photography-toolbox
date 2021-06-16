@@ -7,7 +7,7 @@ day_of_year = date => {
     let start = new Date(year, 0, 0);
     let diff = (date - start) + ((start.getTimezoneOffset() - date.getTimezoneOffset()) * 60 * 1000);
     let oneDay = 1000 * 60 * 60 * 24;
-    let day_of_year = Math.floor(diff / oneDay);
+    let day_of_year = Math.ceil(diff / oneDay);
     return day_of_year
 }
 
@@ -113,16 +113,24 @@ solar_noon = (long, eqtime) => {
     return 720 - 4 * long - eqtime
 }
 
-sunset_for_location = (lat, long, date, tz) => {
+sunevent_for_location = (lat, long, date, tz, event) => {
     gamma = fract_year(date)
-    eqtime = eqtime(gamma)
+    eq_time = eqtime(gamma)
     decl = solar_declination(gamma)
-    // offset = offset(eqtime, long, tz)
-    // ha = hour_angle(tst(hour, 0, 0, offset))
-    // zenith_angle = zenith_angle(ha, lat, decl)
     set_rise_diff = set_rise_ha(lat, decl)
-    sunset = sunset_time(long, eqtime, set_rise_diff) + tz * 60
-    return sunset
+    if (event == "rise") {
+        event_time = sunrise_time(long, eq_time, set_rise_diff) + tz * 60
+    } else {
+        event_time = sunset_time(long, eq_time, set_rise_diff) + tz * 60
+    }
+    return get_time_str(event_time)
+}
+
+get_time_str = hrs => {
+    hr = Math.floor(hrs / 60)
+    min = Math.floor((hrs / 60 - hr) * 60)
+    min = (min < 10) ? "0" + String(min) : String(min)
+    return (String(hr) + ":" + min)
 }
 
 deg_to_rad = angle => {
