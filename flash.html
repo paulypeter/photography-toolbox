@@ -34,25 +34,21 @@
     </div>
 </div>
 <div class=row>
-    <div class=column>
-        <label for="iso_speed">ISO</label>
-        <select id="iso_speed" onchange="update_result()"></select>
-    </div>
+    <div class=column><label for="iso_speed">ISO</label></div>
+    <div class=column><select id="iso_speed" onchange="update_result()"></select></div>
 </div>
 <br>
-<div class=row>
-    <div class=column id=guide_number_input>
-        <label for=guide_number>Guide Number</label>
-        <input type=number id=guide_number onchange="update_result()" value=43>
-    </div>
-    <div class=column id=f_stop_input>
-        <label for="f_stop">F-stop</label>
-        <select id="f_stop" onchange="update_result()"></select>
-    </div>
-    <div class=column id=distance_input>
-        <label for=distance>Distance</label>
-        <input type=number id=distance onchange="update_result()" value=10>
-    </div>
+<div class=row id="guide_number_input">
+    <div class=column><label for="guide_number">Guide Number</label></div>
+    <div class=column><input type=number id="guide_number" onchange="update_result()" value=43></div>
+</div>
+<div class=row id="f_stop_input">
+    <div class=column><label for="f_stop">F-stop</label></div>
+    <div class=column><select id="f_stop" onchange="update_result()"></select></div>
+</div>
+<div class=row id="distance_input">
+    <div class=column><label for="distance">Distance</label></div>
+    <div class=column><input type=number id="distance" onchange="update_result()" value=10></div>
 </div>
 <br>
 <div class=row>
@@ -71,7 +67,7 @@
                 mode = element.value
                 document.getElementById(element.value + "_input").style.display = "none"
             } else {
-                document.getElementById(element.value + "_input").style.display = "block"
+                document.getElementById(element.value + "_input").style.display = "inline-block"
             }
         });
     }
