@@ -76,11 +76,13 @@ a, .menu{
     padding:0px;
     display: inline-block;
     width: 100%;
+    min-width: 100%;
 }
 
 .column {
     float: left;
     margin: 2px;
+    width: 120px;
     position: inherit;
 }
 

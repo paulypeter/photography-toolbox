@@ -23,20 +23,20 @@
 
 <h3>Equivalent exposure</h1>
     <div class=row>
-        <div class=column>Original settings:</div>
+        Original settings:
     </div>
 <div class=row>
-    <div class=column>
-        <label for="shutter">Shutter speed</label>
-        <select id="shutter" onchange="update_result()"></select>
+    <div class=row>
+        <div class=column><label for="shutter">Shutter speed</label></div>
+        <div class=column><select id="shutter" onchange="update_result()"></select></div>
     </div>
-    <div class=column>
-        <label for="f_stop">F-stop</label>
-        <select id="f_stop" onchange="update_result()"></select>
+    <div class=row>
+        <div class=column><label for="f_stop">F-stop</label></div>
+        <div class=column><select id="f_stop" onchange="update_result()"></select></div>
     </div>
-    <div class=column>
-        <label for="iso_speed">ISO</label>
-        <select id="iso_speed" onchange="update_result()"></select>
+    <div class=row>
+        <div class=column><label for="iso_speed">ISO</label></div>
+        <div class=column><select id="iso_speed" onchange="update_result()"></select></div>
     </div>
 </div>
 <br>
@@ -55,21 +55,19 @@
 </div>
 <br>
 <div class=row>
-    <div class=column>Target settings:</div>
+    Target settings:
 </div>
-<div class=row>
-    <div class=column id=target_shutter_select>
-        <label for="target_shutter">Shutter speed</label>
-        <select id="target_shutter" onchange="update_result()"></select>
-    </div>
-    <div class=column id=target_f_stop_select>
-        <label for="target_f_stop">F-stop</label>
-        <select id="target_f_stop" onchange="update_result()"></select>
-    </div>
-    <div class=column id=target_iso_speed_select>
-        <label for="target_iso_speed">ISO</label>
-        <select id="target_iso_speed" onchange="update_result()"></select>
-    </div>
+<div class=row id=target_shutter_select>
+    <div class=column><label for="target_shutter">Shutter speed</label></div>
+    <div class=column><select id="target_shutter" onchange="update_result()"></select></div>
+</div>
+<div class=row id=target_f_stop_select>
+    <div class=column><label for="target_f_stop">F-stop</label></div>
+    <div class=column><select id="target_f_stop" onchange="update_result()"></select></div>
+</div>
+<div class=row id=target_iso_speed_select>
+    <div class=column><label for="target_iso_speed">ISO</label></div>
+    <div class=column><select id="target_iso_speed" onchange="update_result()"></select></div>
 </div>
 <br>
 <div class=row>
@@ -92,7 +90,7 @@
                 mode = element.value
                 document.getElementById("target_" + element.value + "_select").style.display = "none"
             } else {
-                document.getElementById("target_" + element.value + "_select").style.display = "block"
+                document.getElementById("target_" + element.value + "_select").style.display = "inline-block"
             }
         });
     }
