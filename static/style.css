@@ -5,6 +5,7 @@
 
 body {
     background-color: gray;
+    height: 100vh;
 }
 
 a, .menu{
