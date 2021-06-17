@@ -70,7 +70,8 @@ a, .menu{
 }
 
 .row {
-    margin:5px;
+    /* margin:5px; */
+    margin-left: 5px;
     padding:0px;
     display: inline-block;
     width: 100%;
