@@ -72,11 +72,14 @@ a, .menu{
 .row {
     margin:5px;
     padding:0px;
+    display: inline-block;
+    width: 100%;
 }
 
 .column {
     float: left;
     margin: 2px;
+    position: inherit;
 }
 
 input[type=range] {
@@ -94,4 +97,10 @@ input[type=range] {
 
 .helplink {
     float: right;
+}
+
+.container, .form-container {
+    display: block;
+    position: static;
+    margin: 0 auto;
 }

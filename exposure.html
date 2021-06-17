@@ -22,8 +22,10 @@
 <title>Exposure | Photography Toolbox</title>
 
 <h3>Equivalent exposure</h1>
+    <div class=row>
+        <div class=column>Original settings:</div>
+    </div>
 <div class=row>
-    <div class=column>Original settings:</div>
     <div class=column>
         <label for="shutter">Shutter speed</label>
         <select id="shutter" onchange="update_result()"></select>
@@ -40,6 +42,8 @@
 <br>
 <div class=row>
     <div class=column>Calculate:</div>
+</div>
+<div class=row>
     <div onchange="toggle_input(); update_result()" class=row>
         <input type="radio" name=setting_choice id=get_shutter_speed value="shutter">
         <label for=get_shutter_speed>Shutter</label>
