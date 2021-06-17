@@ -140,5 +140,3 @@ deg_to_rad = angle => {
 rad_to_deg = angle => {
     return angle * 180 / Math.PI
 }
-
-console.log(day_of_year(15, 6, 2021))
