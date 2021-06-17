@@ -7,7 +7,7 @@
     <div class=nav>
         <a><i class="fa fa-bars menu" aria-hidden="true"></i></a>
         <div class=menu></div>
-        <a href="index.html"><i class="fa fa-camera menu"> Photography Toolbox</i></a>
+        <a href="index.html"><i class="fa fa-camera menu" id=title> Photography Toolbox</i></a>
         <a href="docs/calculations.html" class=helplink><i class="fa fa-question menu"></i></a>
     </div>
     </nav>
@@ -23,39 +23,42 @@
 
 <div class=form-container>
     <div class=row>
-        <label for="sensor">Sensor format</label>
-        <select id="sensor" onchange="update_result()"></select>
+        <div class=column><label for="sensor">Sensor format</label></div>
+        <div class=column><select id="sensor" onchange="update_result()"></select></div>
     </div>
     <div class=row>
-        <label for=focal_length>Focal length</label>
-        <input type="number" id=focal_length onchange="update_result()" value=50>
+        <div class=column><label for=focal_length>Focal length</label></div>
+        <div class=column><input type="number" id=focal_length onchange="update_result()" value=50></div>
     </div>
     <div class=row>
-        <label for="f_stop">F-stop</label>
-        <select id="f_stop" onchange="update_result()"></select>
+        <div class=column><label for="f_stop">F-stop</label></div>
+        <div class=column><select id="f_stop" onchange="update_result()"></select></div>
     </div>
     <div class=row>
-        <div class=column><label for=distance>Distance: </label></div>
+    <label for=distance>Distance: </label>
+</div>
+    <div class=row>
+        
         <input type="range" id=distance onchange="update_input(); update_result()" min=1>
-        <div class=column><span id=input class=input></span></div>
+        <div class=column><span id=input class=input></span>
         <select id="distance_unit" onchange="update_result()">
             <option value=10>cm</option>
             <option value=100 selected>dm</option>
             <option value=1000>m</option>
-        </select>
+        </select></div>
     </div>
 </div>
 <div class=form-container>
     <div class=row>
-        <div class=column>Hyperfocal distance <span id=hyperfocal_dist></span> m</div><br>
+        Hyperfocal distance <span id=hyperfocal_dist></span> m<br>
     </div>
 </div>
 <div class=form-container>
     <div class=row>
-        <div class=column>Near limit <span id=near_limit></span> m</div>
+        Near limit <span id=near_limit></span> m
     </div>
     <div class=row>
-        <div class=column>Far limit <span id=far_limit></span> m</div>
+        Far limit <span id=far_limit></span> m
     </div>
 </div>
 
@@ -84,5 +87,9 @@
 
     window.onload = () => {
         update_input()
+        let window_width = window.innerWidth;
+        if (window_width < 340) {
+            document.getElementById("title").innerHTML = " Photo Tools"
+        }
     }
 </script>

@@ -7,7 +7,7 @@
     <div class=nav>
         <a><i class="fa fa-bars menu" aria-hidden="true"></i></a>
         <div class=menu></div>
-        <a href="index.html"><i class="fa fa-camera menu"> Photography Toolbox</i></a>
+        <a href="index.html"><i class="fa fa-camera menu" id=title> Photography Toolbox</i></a>
         <a href="docs/calculations.html" class=helplink><i class="fa fa-question menu"></i></a>
     </div>
     </nav>
@@ -104,5 +104,9 @@
 
     window.onload = () => {
         toggle_input()
+        let window_width = window.innerWidth;
+        if (window_width < 340) {
+            document.getElementById("title").innerHTML = " Photo Tools"
+        }
     }
 </script>
