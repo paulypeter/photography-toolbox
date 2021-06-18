@@ -53,39 +53,39 @@ solar_declination = gamma => {
  *  long in degrees
  *  tz: hours from UTC, e. g. -5, +1, ...
  */
-offset = (eqtime, long, tz) => {
-    return eqtime + 4 * long - 60 * tz
-}
+// offset = (eqtime, long, tz) => {
+//     return eqtime + 4 * long - 60 * tz
+// }
 
-tst = (hr, mn, sc, time_offset) => {
-    return hr * 60 + mn + sc / 60 + time_offset
-}
+// tst = (hr, mn, sc, time_offset) => {
+//     return hr * 60 + mn + sc / 60 + time_offset
+// }
 
-hour_angle = tst => {
-    return (tst / 4) - 180
-}
+// hour_angle = tst => {
+//     return (tst / 4) - 180
+// }
 
-zenith_angle = (ha, lat, decl) => {
-    return (
-        Math.acos(
-            Math.sin(lat) * Math.sin(decl) +
-            Math.cos(lat) * Math.cos(decl) * Math.cos(ha)
-        )
-    )
-}
+// zenith_angle = (ha, lat, decl) => {
+//     return (
+//         Math.acos(
+//             Math.sin(lat) * Math.sin(decl) +
+//             Math.cos(lat) * Math.cos(decl) * Math.cos(ha)
+//         )
+//     )
+// }
 
-solar_azimuth = (zen_ang, lat, decl) => {
-    return (
-        180 - Math.acos(
-            -1 * (
-                (
-                    Math.sin(deg_to_rad(lat)) * Math.cos(zen_ang) - 
-                    Math.sin(decl)
-                ) / Math.cos(deg_to_rad(lat)) * Math.sin(zen_ang)
-            )
-        )
-    )
-}
+// solar_azimuth = (zen_ang, lat, decl) => {
+//     return (
+//         180 - Math.acos(
+//             -1 * (
+//                 (
+//                     Math.sin(deg_to_rad(lat)) * Math.cos(zen_ang) - 
+//                     Math.sin(decl)
+//                 ) / Math.cos(deg_to_rad(lat)) * Math.sin(zen_ang)
+//             )
+//         )
+//     )
+// }
 
 set_rise_ha = (lat, decl) => {
     return rad_to_deg(
@@ -109,9 +109,9 @@ sunset_time = (long, eqtime, ha) => {
     )
 }
 
-solar_noon = (long, eqtime) => {
-    return 720 - 4 * long - eqtime
-}
+// solar_noon = (long, eqtime) => {
+//     return 720 - 4 * long - eqtime
+// }
 
 sunevent_for_location = (lat, long, date, tz, event) => {
     gamma = fract_year(date)
