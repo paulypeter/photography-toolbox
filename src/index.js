@@ -1,6 +1,7 @@
 const CROP = require('./crop-factor')
 const FLASH = require('./flash')
 const EXPOSURE = require('./exposure')
+const SUN = require('./sun')
 
 module.exports = {
     // sensor
@@ -30,5 +31,7 @@ module.exports = {
     shutter_for_ev,
     f_stop_for_ev,
     equivalent_exposure,
-    find_nearest
+    find_nearest,
+    // sun
+    sunevent_for_location
 }
