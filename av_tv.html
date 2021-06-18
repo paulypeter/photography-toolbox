@@ -20,34 +20,38 @@
 <script src="https://use.fontawesome.com/f35383e121.js"></script>
 
 <title>Priority modes | Photography Toolbox</title>
-<div class=row>Priority:</div>
-<div onchange="toggle_input(); update_result()" class=row>
-    <input type="radio" name=setting_choice id=set_shutter_speed value="shutter">
-    <label for=set_shutter_speed>Shutter</label>
-    <input type="radio" name=setting_choice id=set_f_stop value="f_stop">
-    <label for=set_f_stop>F-Stop</label>
+<div class=form-container>
+    <div class=row>Priority:</div>
+    <div onchange="toggle_input(); update_result()" class=row>
+        <input type="radio" name=setting_choice id=set_shutter_speed value="shutter">
+        <label for=set_shutter_speed>Shutter</label>
+        <input type="radio" name=setting_choice id=set_f_stop value="f_stop">
+        <label for=set_f_stop>F-Stop</label>
+    </div>
 </div>
-<div class=row>Settings:</div>
-<div class=row>
-    <div class=column><label for="iso_speed">ISO</label></div>
-    <div class=column><select id="iso_speed" onchange="update_result()"></select></div>
+<div class=form-container>
+    <div class=row>Settings:</div>
+    <div class=row>
+        <div class=column><label for="iso_speed">ISO</label></div>
+        <div class=column><select id="iso_speed" onchange="update_result()"></select></div>
+    </div>
+    <div class=row id=f_stop_select>
+        <div class=column><label for="f_stop">F-stop</label></div>
+        <div class=column><select id="f_stop" onchange="update_result()"></select></div>
+    </div>
+    <div class=row id=shutter_select>
+        <div class=column><label for="shutter">Shutter speed</label></div>
+        <div class=column><select id="shutter" onchange="update_result()"></select></div>
+    </div>
 </div>
-<div class=row id=f_stop_select>
-    <div class=column><label for="f_stop">F-stop</label></div>
-    <div class=column><select id="f_stop" onchange="update_result()"></select></div>
-</div>
-<div class=row id=shutter_select>
-    <div class=column><label for="shutter">Shutter speed</label></div>
-    <div class=column><select id="shutter" onchange="update_result()"></select></div>
-</div>
-<br>
-<div class=row>
-    <div class=column><label for=ev>EV: <span id=ev_input class=input></span></label></div>
-    <input type="range" id=ev min=-6 max=21 step=1 value=12 onchange="update_input(); update_result()">
-</div>
-<br>
-<div class=row>
-    result: <span id=result></span><span id=result_unit></span>
+<div class=form-container>
+    <div class=row>
+        <div class=column><label for=ev>EV: <span id=ev_input class=input></span></label></div>
+        <input type="range" id=ev min=-6 max=21 step=1 value=12 onchange="update_input(); update_result()">
+    </div>
+    <div class=row>
+        result: <span id=result></span><span id=result_unit></span>
+    </div>
 </div>
 
 <script>
