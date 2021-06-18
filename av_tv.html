@@ -43,12 +43,12 @@
         <div class=column><label for="shutter">Shutter speed</label></div>
         <div class=column><select id="shutter" onchange="update_result()"></select></div>
     </div>
-</div>
-<div class=form-container>
     <div class=row>
         <div class=column><label for=ev>EV: <span id=ev_input class=input></span></label></div>
         <input type="range" id=ev min=-6 max=21 step=1 value=12 onchange="update_input(); update_result()">
     </div>
+</div>
+<div class=form-container>
     <div class=row>
         result: <span id=result></span><span id=result_unit></span>
     </div>
