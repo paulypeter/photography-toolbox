@@ -22,36 +22,41 @@
 
 <title>Flash | Photography Toolbox</title>
 
-<div class=row>
-    <div class=column>Calculate:</div>
-    <div onchange="toggle_input(); update_result()" class=row>
-        <input type="radio" name=setting_choice id=get_guide_number value="guide_number">
-        <label for=get_guide_number>Guide Number</label>
-        <input type="radio" name=setting_choice id=get_f_stop value="f_stop" checked>
-        <label for=get_f_stop>F-Stop</label>
-        <input type="radio" name=setting_choice id=get_distance value="distance">
-        <label for=get_distance>Distance</label>
+<div class=form-container>
+    <div class=row>
+        <div class=column>Calculate:</div>
+        <div onchange="toggle_input(); update_result()" class=row>
+            <input type="radio" name=setting_choice id=get_guide_number value="guide_number">
+            <label for=get_guide_number>Guide Number</label>
+            <input type="radio" name=setting_choice id=get_f_stop value="f_stop" checked>
+            <label for=get_f_stop>F-Stop</label>
+            <input type="radio" name=setting_choice id=get_distance value="distance">
+            <label for=get_distance>Distance</label>
+        </div>
     </div>
 </div>
-<div class=row>
-    <div class=column><label for="iso_speed">ISO</label></div>
-    <div class=column><select id="iso_speed" onchange="update_result()"></select></div>
+<div class=form-container>
+    <div class=row>
+        <div class=column><label for="iso_speed">ISO</label></div>
+        <div class=column><select id="iso_speed" onchange="update_result()"></select></div>
+    </div>
+    <div class=row id="guide_number_input">
+        <div class=column><label for="guide_number">Guide Number</label></div>
+        <div class=column><input type=number id="guide_number" onchange="update_result()" value=43></div>
+    </div>
+    <div class=row id="f_stop_input">
+        <div class=column><label for="f_stop">F-stop</label></div>
+        <div class=column><select id="f_stop" onchange="update_result()"></select></div>
+    </div>
+    <div class=row id="distance_input">
+        <div class=column><label for="distance">Distance</label></div>
+        <div class=column><input type=number id="distance" onchange="update_result()" value=10></div>
+    </div>
 </div>
-<br>
-<div class=row id="guide_number_input">
-    <div class=column><label for="guide_number">Guide Number</label></div>
-    <div class=column><input type=number id="guide_number" onchange="update_result()" value=43></div>
-</div>
-<div class=row id="f_stop_input">
-    <div class=column><label for="f_stop">F-stop</label></div>
-    <div class=column><select id="f_stop" onchange="update_result()"></select></div>
-</div>
-<div class=row id="distance_input">
-    <div class=column><label for="distance">Distance</label></div>
-    <div class=column><input type=number id="distance" onchange="update_result()" value=10></div>
-</div>
-<div class=row>
-    result: <span id=result></span><span id=result_unit></span>
+<div class=form-container>
+    <div class=row>
+        result: <span id=result></span><span id=result_unit></span>
+    </div>
 </div>
 
 <script>
