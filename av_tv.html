@@ -97,10 +97,17 @@
         if (document.getElementById("set_shutter_speed").checked) {
             shutter_speed = get_float_from_speed_str(document.getElementById("shutter").value)
             res = f_stop_for_ev(ev, shutter_speed, iso_speed)
+            res_ev = Math.round(
+                exposure_value(get_float_from_speed_str(res), shutter_speed, iso_speed)
+            )
         } else {
             f_stop = get_float_from_speed_str(document.getElementById("f_stop").value)
             res = shutter_for_ev(ev, f_stop, iso_speed)
+            res_ev = Math.round(
+                exposure_value(f_stop, get_float_from_speed_str(res), iso_speed)
+            )
         }
         document.getElementById("result").innerHTML = res
+        document.getElementById("result").style.color = (ev != res_ev) ? "red" : "inherit"
     }
 </script>
