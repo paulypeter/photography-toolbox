@@ -72,6 +72,7 @@
         document.getElementById("f_stop_select").style.display = "none"
         update_input()
         update_result()
+        document.getElementById("result_prefix").innerHTML = "f/"
         let window_width = window.innerWidth;
         if (window_width < 340) {
             document.getElementById("title").innerHTML = " Photo Tools"
@@ -89,6 +90,7 @@
             }
         });
         document.getElementById("result_unit").innerHTML = input_setting == "shutter" ? "" : " s"
+        document.getElementById("result_prefix").innerHTML = input_setting == "shutter" ? "f/" : ""
     }
 
     update_input = () => {
