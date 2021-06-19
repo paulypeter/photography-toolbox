@@ -75,7 +75,12 @@
 <div class=form-container>
     <div class=row>
         <strong>
-        <div class=column>result:</div><div class=column><span id=result></span><span id=result_unit></span></div>
+        <div class=column>result:</div>
+        <div class=column>
+            <span id=result_prefix></span>
+            <span id=result></span>
+            <span id=result_unit></span>
+        </div>
         </strong>
     </div>
 </div>
@@ -110,7 +115,19 @@
             target[element] = get_float_from_speed_str(document.getElementById("target_" + element).value)
         })
         document.getElementById("result_unit").innerHTML = mode == "shutter" ? " s" : ""
+        document.getElementById("result_prefix").innerHTML = mode == "f_stop" ? "f/" : ""
+        res = equivalent_exposure(origin, target, mode)
+        target[mode] = get_float_from_speed_str(res)
+        origin_ev = Math.round(
+            exposure_value(origin.f_stop, origin.shutter, origin.iso_speed)
+        )
+        res_ev = Math.round(
+            exposure_value(target.f_stop, target.shutter, target.iso_speed)
+        )
+        console.log(origin_ev)
+        console.log(res_ev)
         document.getElementById("result").innerHTML = equivalent_exposure(origin, target, mode)
+        document.getElementById("result").style.color = (origin_ev != res_ev) ? "red" : "inherit"
     }
 
     window.onload = () => {
