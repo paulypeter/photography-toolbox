@@ -126,3 +126,9 @@ input[type="number"] {
     background: rgba(255, 255, 255, 0.5);
     z-index: 5;
 }
+
+.sidebar-link {
+    color: black;
+    margin: 10px;
+    padding: 10px;
+}

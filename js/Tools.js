@@ -48,8 +48,21 @@ close_nav = () => {
 }
 
 init_nav = () => {
-    sidebar = document.getElementById("sidebar")
-    sidebar.innerHTML = (
-        "Home"
-    )
+    let pages = ["index", "aov", "av_tv", "dof", "exposure", "flash"]
+    let page_names = {
+        "index": "Home",
+        "aov": "Angles of View",
+        "av_tv": "Priority Modes",
+        "dof": "Depth of Field",
+        "exposure": "Equivalent exposure",
+        "flash": "Flash exposure"
+    }
+    let sidebar = document.getElementById("sidebar")
+    sidebar.innerHTML = ""
+    pages.forEach(element => {
+        sidebar.innerHTML += (
+            "<a href=\"" + element + "html\" class=\"sidebar-link menu\">" +
+            page_names[element] + "</a>"
+        )
+    });
 }
