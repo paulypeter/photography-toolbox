@@ -61,7 +61,7 @@ init_nav = () => {
     sidebar.innerHTML = ""
     pages.forEach(element => {
         sidebar.innerHTML += (
-            "<a href=\"" + element + "html\" class=\"sidebar-link menu\">" +
+            "<a href=\"" + element + ".html\" class=\"sidebar-link menu\">" +
             page_names[element] + "</a>"
         )
     });
