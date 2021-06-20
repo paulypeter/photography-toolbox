@@ -5,7 +5,7 @@
 <header>
     <nav>
     <div class=nav>
-        <a><i class="fa fa-bars menu" aria-hidden="true"></i></a>
+        <a id=nav_toggle onclick="open_nav()"><i class="fa fa-bars menu" aria-hidden="true"></i></a>
         <div class=menu></div>
         <a href="index.html"><i class="fa fa-camera menu" id=title> Photography Toolbox</i></a>
         <a href="docs/calculations.html" class=helplink><i class="fa fa-question menu"></i></a>
@@ -21,6 +21,11 @@
 
 <title>Exposure | Photography Toolbox</title>
 
+<div class=sidebar id=sidebar>
+    Sidebar-Content
+</div>
+
+<div id=content>
 <h3>Equivalent exposure</h3>
 
 <div class=form-container>
@@ -84,6 +89,7 @@
         </strong>
     </div>
 </div>
+</div>  <!-- content -->
 
 <script>
     speed_select("f_stop", F_STOPS.reverse())
