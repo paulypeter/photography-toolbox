@@ -61,7 +61,12 @@
 <div class=form-container>
     <div class=row>
         <strong>
-        <div class=column>result:</div><div class=column><span id=result></span><span id=result_unit></span></div>
+        <div class=column>result:</div>
+        <div class=column>
+            <span id=result_prefix></span>
+            <span id=result></span>
+            <span id=result_unit></span>
+        </div>
         </strong>
     </div>
 </div>
@@ -108,6 +113,7 @@
     update_result = () => {
         document.getElementById("result").innerHTML = get_result()
         document.getElementById("result_unit").innerHTML = mode == "distance" ? " m" : ""
+        document.getElementById("result_prefix").innerHTML = mode == "f_stop" ? "f/" : ""
     }
 
     window.onload = () => {
