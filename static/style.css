@@ -76,15 +76,23 @@ a, .menu{
     margin-left: 5px;
     padding:0px;
     display: inline-block;
-    width: max-content;
-    min-width: max-content;
+    min-width: 400px;
 }
 
 .column {
     margin: 2px;
-    width: 120px;
+    max-width: 120px;
+    min-width: max-content;
     position: inherit;
     display: inline-block;
+}
+
+.row > .column:first-child {
+    float: left;
+}
+
+.row > .column:last-child {
+    float: right;
 }
 
 input[type=range] {
@@ -115,7 +123,7 @@ input[type="number"] {
     padding: 5px;
     margin-top: 5px;
     justify-content: center;
-    width: min-content;
+    width: 400px;
 }
 
 .sidebar {
