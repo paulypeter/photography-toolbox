@@ -25,26 +25,26 @@ require = path => {}
 
 open_nav = () => {
     sidebar = document.getElementById("sidebar")
-    sidebar.style.width = "250px";
-    sidebar.style.display = "block"
+    sidebar.style.width = "250px"
     // containers = document.getElementsByClassName("form-container")
     // for (let i = 0; i < containers.length; i++) {
     //     containers[i].style.marginLeft = "250px"
     // }
     document.getElementById("nav_toggle").setAttribute("onclick", "close_nav()")
     document.getElementById("content").style.filter = "blur(5px)"
+    sidebar.style.visibility = "visible"
 }
 
 close_nav = () => {
     sidebar = document.getElementById("sidebar")
-    sidebar.style.width = "0";
-    sidebar.style.display = "none"
+    sidebar.style.width = "0"
     containers = document.getElementsByClassName("form-container")
     for (let i = 0; i < containers.length; i++) {
         containers[i].style.marginLeft = "0"
     }
     document.getElementById("nav_toggle").setAttribute("onclick", "open_nav()")
     document.getElementById("content").style.filter = "none"
+    sidebar.style.visibility = "hidden"
 }
 
 init_nav = () => {
