@@ -1,6 +1,7 @@
 * {
     margin: 0 auto;
     font: "Helvetica";
+    overflow: hidden;
 }
 
 body {
