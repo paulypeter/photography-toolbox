@@ -46,3 +46,10 @@ close_nav = () => {
     document.getElementById("nav_toggle").setAttribute("onclick", "open_nav()")
     document.getElementById("content").style.filter = "none"
 }
+
+init_nav = () => {
+    sidebar = document.getElementById("sidebar")
+    sidebar.innerHTML = (
+        "Home"
+    )
+}
