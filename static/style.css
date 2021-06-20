@@ -76,15 +76,15 @@ a, .menu{
     margin-left: 5px;
     padding:0px;
     display: inline-block;
-    width: 100%;
-    min-width: 100%;
+    width: max-content;
+    min-width: max-content;
 }
 
 .column {
-    float: left;
     margin: 2px;
     width: 120px;
     position: inherit;
+    display: inline-block;
 }
 
 input[type=range] {
@@ -112,7 +112,10 @@ input[type="number"] {
     display: block;
     position: static;
     margin: 0 auto;
+    padding: 5px;
     margin-top: 5px;
+    justify-content: center;
+    width: min-content;
 }
 
 .sidebar {
