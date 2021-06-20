@@ -5,7 +5,7 @@
 <header>
     <nav>
     <div class=nav>
-        <a><i class="fa fa-bars menu" aria-hidden="true"></i></a>
+        <a id=nav_toggle onclick="open_nav()"><i class="fa fa-bars menu" aria-hidden="true"></i></a>
         <div class=menu></div>
         <a href="index.html"><i class="fa fa-camera menu" id=title> Photography Toolbox</i></a>
         <a href="docs/calculations.html" class=helplink><i class="fa fa-question menu"></i></a>
@@ -20,6 +20,11 @@
 <script src="https://use.fontawesome.com/f35383e121.js"></script>
 
 <title>Priority modes | Photography Toolbox</title>
+<div class=sidebar id=sidebar>
+    Sidebar-Content
+</div>
+
+<div id=content>
 <div class=form-container>
     <div class=row>Priority:</div>
     <div onchange="toggle_input(); update_result()" class=row>
@@ -60,6 +65,7 @@
         </strong>
     </div>
 </div>
+</div>  <!-- content -->
 
 <script>
     speed_select("f_stop", F_STOPS.reverse())
@@ -77,6 +83,7 @@
         if (window_width < 340) {
             document.getElementById("title").innerHTML = " Photo Tools"
         }
+        init_nav()
     }
 
     toggle_input = () => {

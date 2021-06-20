@@ -114,3 +114,23 @@ input[type="number"] {
     margin: 0 auto;
     margin-top: 5px;
 }
+
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    display: none;
+    border: 1px solid black;
+    transition-duration: 500ms;
+    transition-property: all;
+    background: rgba(125, 125, 125, 0.6);
+    z-index: 5;
+    border-radius: 0 5px 5px 0;
+}
+
+.sidebar-link {
+    color: black;
+    text-decoration: none;
+    margin: 10px;
+    padding: 10px;
+}
