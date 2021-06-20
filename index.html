@@ -5,7 +5,7 @@
 <header>
     <nav>
     <div class=nav>
-        <a><i class="fa fa-bars menu" aria-hidden="true"></i></a>
+        <a id=nav_toggle onclick="open_nav()"><i class="fa fa-bars menu" aria-hidden="true"></i></a>
         <div class=menu></div>
         <a><i class="fa fa-camera menu" id=title> Photography Toolbox</i></a>
         <a href="docs/calculations.html" class=helplink><i class="fa fa-question menu"></i></a>
@@ -17,6 +17,11 @@
 <script src="https://use.fontawesome.com/f35383e121.js"></script>
 
 <title>Photography Toolbox</title>
+<div class=sidebar id=sidebar>
+    Sidebar-Content
+</div>
+
+<div id=content>
 <body>
 <div class="card">
     <a class=card-title href="dof.html">Depth of Field
@@ -52,6 +57,7 @@
     <div class=card-content>
     </div>
 </div>
+</div>  <!-- content -->
 
 <script>
     window.onload = () => {
