@@ -53,13 +53,13 @@ solar_declination = gamma => {
  *  long in degrees
  *  tz: hours from UTC, e. g. -5, +1, ...
  */
-// offset = (eqtime, long, tz) => {
-//     return eqtime + 4 * long - 60 * tz
-// }
+offset = (eqtime, long, tz) => {
+    return eqtime + 4 * long - 60 * tz
+}
 
-// tst = (hr, mn, sc, time_offset) => {
-//     return hr * 60 + mn + sc / 60 + time_offset
-// }
+tst = (hr, mn, sc, time_offset) => {
+    return hr * 60 + mn + sc / 60 + time_offset
+}
 
 // hour_angle = tst => {
 //     return (tst / 4) - 180
