@@ -15,6 +15,13 @@ solar_mean_anomaly = date => {
     return 0 - 3.18 + 0.98560 * day_of_year(date)
 }
 
+eq_center = anomaly => {
+    let m = deg_to_rad(anomaly)
+    return (
+        1.9148 * Math.sin(m) + 0.02 * Math.sin(2 * m) + 0.0003 * Math.sin(3 * m)
+    )
+}
+
 is_leap_year = year => {
     return (((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0))
 }
