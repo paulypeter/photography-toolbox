@@ -11,6 +11,10 @@ day_of_year = date => {
     return day_of_year
 }
 
+solar_mean_anomaly = date => {
+    return 0 - 3.18 + 0.98560 * day_of_year(date)
+}
+
 is_leap_year = year => {
     return (((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0))
 }
