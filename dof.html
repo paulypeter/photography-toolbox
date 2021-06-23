@@ -95,7 +95,7 @@
         dof_far_result = dof_far(sensor_size, distance, focal_length, f_stop)
         dof_far_result = dof_far_result < 0 ? Infinity : dof_far_result
         dof_near_result = dof_near(sensor_size, distance, focal_length, f_stop)
-        dof = dof_far_result - dof_near_result
+        dof = Number((dof_far_result - dof_near_result).toFixed(2))
         hyperfocal_dist = Number((hyperfocal(focal_length, f_stop, sensor_size) / 1000).toFixed(2))
         document.getElementById("near_limit").innerHTML = dof_near_result
         document.getElementById("far_limit").innerHTML = dof_far_result
