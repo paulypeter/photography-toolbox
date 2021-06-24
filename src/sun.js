@@ -78,6 +78,18 @@ tst = (hr, mn, sc, time_offset) => {
     return hr * 60 + mn + sc / 60 + time_offset
 }
 
+// TODO: decl in rad or ° ?
+hour_angle = (decl, lat) => {
+    return (
+        rad_to_deg(
+            Math.acos(
+                (Math.sin(deg_to_rad(-0.833)) - Math.sin(deg_to_rad(lat) * Math.sin(decl))) / 
+                (Math.cos(deg_to_rad(lat) * Math.cos(decl)))
+            )
+        )
+    )
+}
+
 // hour_angle = tst => {
 //     return (tst / 4) - 180
 // }
