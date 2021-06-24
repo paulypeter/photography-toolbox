@@ -26,6 +26,12 @@ is_leap_year = year => {
     return (((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0))
 }
 
+ecliptic_long = (mean_anomaly, eq_center) => {
+    return (
+        (mean_anomaly + eq_center + 180 + 102.9372) % 360
+    )
+}
+
 // gamma
 fract_year = (date) => {
     let year = date.getFullYear()
