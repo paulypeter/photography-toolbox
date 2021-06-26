@@ -90,6 +90,12 @@ hour_angle = (decl, lat) => {
     )
 }
 
+sun_decl = ecliptic_long => {
+    return Math.asin(
+        Math.sin(ecliptic_long) * Math.sin(deg_to_rad(23.44))
+    )
+}
+
 // hour_angle = tst => {
 //     return (tst / 4) - 180
 // }
