@@ -78,7 +78,7 @@ tst = (hr, mn, sc, time_offset) => {
     return hr * 60 + mn + sc / 60 + time_offset
 }
 
-// TODO: decl in rad or ° ?
+// decl is in rad
 hour_angle = (decl, lat) => {
     return (
         rad_to_deg(
