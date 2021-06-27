@@ -61,17 +61,17 @@ test("Returns correct CoC", () => {
 test("Returns correct DoF", () => {
     expect(
         photographyTools.dof(
-            photographyTools.sensor_sizes["APS-C C"], 20000, 4, 85
+            20000, 4, 85, 0.018
         )
     ).toBe(8.26);
     expect(
         photographyTools.dof(
-            photographyTools.sensor_sizes["35mm"], 10000, 1.8, 50
+            10000, 1.8, 50, 0.029
         )
     ).toBe(4.34);
     expect(
         photographyTools.dof(
-            photographyTools.sensor_sizes["35mm"], 35000, 2.8, 200
+            35000, 2.8, 200, 0.029
         )
     ).toBe(4.97);
 });
