@@ -56,6 +56,20 @@
         <label for=use_custom_coc>Use custom Circle of Confusion calculation</label>
     </div>
 </div>
+<div class=form-container id=custom_coc_config>
+    <div class=row>
+        <div class=column><label for=viewing_dist>View dist [cm]:</label></div>
+        <div class=column><input type="number" id=viewing_dist value=25></div>
+    </div>
+    <div class=row>
+        <div class=column><label for=lpmm>line pairs / mm:</label></div>
+        <div class=column><input type="number" id=lpmm value=5></div>
+    </div>
+    <div class=row>
+        <div class=column><label for=enlargement>Enlargement:</label></div>
+        <div class=column><input type="number" id=enlargement value=8></div>
+    </div>
+</div>
 <div class=form-container>
     <div class=row>
         <strong>
@@ -107,6 +121,12 @@
         document.getElementById("dof").innerHTML = dof
     }
 
+    toggle_coc = (b_use_custom_coc) => {
+        document.getElementById("custom_coc_config").style.display = (
+            b_use_custom_coc ? "block" : "none"
+        )
+    }
+
     window.onload = () => {
         update_input()
         update_result()
@@ -114,6 +134,7 @@
         if (window_width < 340) {
             document.getElementById("title").innerHTML = " Photo Tools"
         }
+        document.getElementById("custom_coc_config").style.display = "none"
         init_nav()
     }
 </script>
