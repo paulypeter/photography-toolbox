@@ -45,8 +45,8 @@ dof_near = (distance, focal_length, f_stop, coc) => {
 dof_far = (distance, focal_length, f_stop, coc) => {
 	hyperfocal_dist = hyperfocal(focal_length, f_stop, coc)
 	return Number(
-		(hyperfocal_dist * distance /
-			(hyperfocal_dist - distance + focal_length) / 1000
+		((hyperfocal_dist * distance) /
+			(hyperfocal_dist - (distance - focal_length)) / 1000
 		).toFixed(2)
 	)
 
