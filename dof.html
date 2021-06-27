@@ -118,7 +118,7 @@
             coc_to_use = coc_custom(viewing_dist, lpmm, enlargement)
         }
         dof_far_result = dof_far(distance, focal_length, f_stop, coc_to_use)
-        dof_far_result = dof_far_result < 0 ? Infinity : dof_far_result
+        dof_far_result = (dof_far_result < 0) ? Infinity : dof_far_result
         dof_near_result = dof_near(distance, focal_length, f_stop, coc_to_use)
         dof = Number((dof_far_result - dof_near_result).toFixed(2))
         hyperfocal_dist = Number((hyperfocal(focal_length, f_stop, coc_to_use) / 1000).toFixed(2))
