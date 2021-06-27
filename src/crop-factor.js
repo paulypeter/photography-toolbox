@@ -67,6 +67,6 @@ aov = (sensor_size, focal_length) => {
  * @param viewing_dist the viewing distance in cm
  * @param lpmm final image resolution in line pairs per mm
  * @param enlargement image width / sensor width
- *
+ * @return the coc in mm
  */
 coc_custom = (viewing_dist, lpmm, enlargement) => Number(((viewing_dist / 25) / (lpmm * enlargement)).toFixed(3))
