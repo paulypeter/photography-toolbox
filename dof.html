@@ -110,11 +110,18 @@
             parseInt(document.getElementById("distance").value) *
             parseInt(document.getElementById("distance_unit").value)
         )
-        dof_far_result = dof_far(sensor_size, distance, focal_length, f_stop)
+        let coc_to_use = coc(sensor_size)
+        if (document.getElementById("use_custom_coc").checked) {
+            let viewing_dist = document.getElementById("viewing_dist").value
+            let lpmm = document.getElementById("lpmm").value
+            let enlargement = document.getElementById("enlargement").value
+            coc_to_use = coc_custom(viewing_dist, lpmm, enlargement)
+        }
+        dof_far_result = dof_far(distance, focal_length, f_stop, coc_to_use)
         dof_far_result = dof_far_result < 0 ? Infinity : dof_far_result
-        dof_near_result = dof_near(sensor_size, distance, focal_length, f_stop)
+        dof_near_result = dof_near(distance, focal_length, f_stop, coc_to_use)
         dof = Number((dof_far_result - dof_near_result).toFixed(2))
-        hyperfocal_dist = Number((hyperfocal(focal_length, f_stop, sensor_size) / 1000).toFixed(2))
+        hyperfocal_dist = Number((hyperfocal(focal_length, f_stop, coc_to_use) / 1000).toFixed(2))
         document.getElementById("near_limit").innerHTML = dof_near_result
         document.getElementById("far_limit").innerHTML = dof_far_result
         document.getElementById("hyperfocal_dist").innerHTML = hyperfocal_dist
