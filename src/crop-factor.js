@@ -63,3 +63,4 @@ aov = (sensor_size, focal_length) => {
 	]
 }
 
+coc_custom = (viewing_dist, lpmm, enlargement) => (viewing_dist / 25) / (lpmm * enlargement)
