@@ -80,7 +80,7 @@ tst = (hr, mn, sc, time_offset) => {
 
 sun_decl = ecliptic_long => {
     return Math.asin(
-        Math.sin(ecliptic_long) * Math.sin(deg_to_rad(23.44))
+        Math.sin(deg_to_rad(ecliptic_long)) * Math.sin(deg_to_rad(23.44))
     )
 }
 
@@ -145,17 +145,21 @@ sunset_time = (long, eqtime, ha) => {
     )
 }
 
-// solar_noon = (long, eqtime) => {
-//     return 720 - 4 * long - eqtime
-// }
+solar_noon = (long, eqtime) => {
+    return 720 - 4 * long - eqtime
+}
 
 sunevent_for_location = (lat, long, date, tz, event) => {
     gamma = fract_year(date)
     eq_time = eqtime(gamma)
-    decl = solar_declination(gamma)
-    set_rise_diff = set_rise_ha(lat, decl)
+    s_m_a = solar_mean_anomaly(date)
+    eqc = eq_center(s_m_a)
+    ecl_long = ecliptic_long(s_m_a, eqc)
+
+    decl = sun_decl(ecl_long)
+    set_rise_diff = hour_angle(decl, lat)
     if (event == "rise") {
-        event_time = sunrise_time(long, eq_time, set_rise_diff) + tz * 60
+        event_time = solar_noon(long, eq_time) - set_rise_diff + tz * 60
     } else {
         event_time = sunset_time(long, eq_time, set_rise_diff) + tz * 60
     }
