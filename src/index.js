@@ -16,6 +16,7 @@ module.exports = {
     aov,
     dof_near,
     dof_far,
+    coc_custom,
     // flash
     guide_number,
     flash_max_distance,
