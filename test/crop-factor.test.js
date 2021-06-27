@@ -28,6 +28,18 @@ test("Returns correct crop factor", () => {
     ).toBe(1.6);
 });
 
+test("Returns correct custom CoC", () => {
+    expect(
+        photographyTools.coc_custom(50, 5, 8)
+    ).toBe(0.05);
+    expect(
+        photographyTools.coc_custom(30, 5, 7)
+    ).toBe(0.034);
+    expect(
+        photographyTools.coc_custom(30, 5, 11)
+    ).toBe(0.022);
+});
+
 test("Returns correct CoC", () => {
     expect(
         photographyTools.coc(
