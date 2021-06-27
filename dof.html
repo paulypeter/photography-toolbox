@@ -51,6 +51,24 @@
     <div class=row>
         <input type="range" id=distance onchange="update_input(); update_result()" min=1>
     </div>
+    <div class=row>
+        <input type="checkbox" id=use_custom_coc name=use_custom_coc value=use_custom_coc onchange="toggle_coc(this.checked); update_result()">
+        <label for=use_custom_coc>Use custom Circle of Confusion calculation</label>
+    </div>
+</div>
+<div class=form-container id=custom_coc_config>
+    <div class=row>
+        <div class=column><label for=viewing_dist>View dist [cm]:</label></div>
+        <div class=column><input type="number" id=viewing_dist value=25 onchange="update_result()"></div>
+    </div>
+    <div class=row>
+        <div class=column><label for=lpmm>line pairs / mm:</label></div>
+        <div class=column><input type="number" id=lpmm value=5 onchange="update_result()"></div>
+    </div>
+    <div class=row>
+        <div class=column><label for=enlargement>Enlargement:</label></div>
+        <div class=column><input type="number" id=enlargement value=8 onchange="update_result()"></div>
+    </div>
 </div>
 <div class=form-container>
     <div class=row>
@@ -92,15 +110,28 @@
             parseInt(document.getElementById("distance").value) *
             parseInt(document.getElementById("distance_unit").value)
         )
-        dof_far_result = dof_far(sensor_size, distance, focal_length, f_stop)
-        dof_far_result = dof_far_result < 0 ? Infinity : dof_far_result
-        dof_near_result = dof_near(sensor_size, distance, focal_length, f_stop)
+        let coc_to_use = coc(sensor_size)
+        if (document.getElementById("use_custom_coc").checked) {
+            let viewing_dist = document.getElementById("viewing_dist").value
+            let lpmm = document.getElementById("lpmm").value
+            let enlargement = document.getElementById("enlargement").value
+            coc_to_use = coc_custom(viewing_dist, lpmm, enlargement)
+        }
+        dof_far_result = dof_far(distance, focal_length, f_stop, coc_to_use)
+        dof_far_result = (dof_far_result < 0) ? Infinity : dof_far_result
+        dof_near_result = dof_near(distance, focal_length, f_stop, coc_to_use)
         dof = Number((dof_far_result - dof_near_result).toFixed(2))
-        hyperfocal_dist = Number((hyperfocal(focal_length, f_stop, sensor_size) / 1000).toFixed(2))
+        hyperfocal_dist = Number((hyperfocal(focal_length, f_stop, coc_to_use) / 1000).toFixed(2))
         document.getElementById("near_limit").innerHTML = dof_near_result
         document.getElementById("far_limit").innerHTML = dof_far_result
         document.getElementById("hyperfocal_dist").innerHTML = hyperfocal_dist
         document.getElementById("dof").innerHTML = dof
+    }
+
+    toggle_coc = (b_use_custom_coc) => {
+        document.getElementById("custom_coc_config").style.display = (
+            b_use_custom_coc ? "block" : "none"
+        )
     }
 
     window.onload = () => {
@@ -110,6 +141,7 @@
         if (window_width < 340) {
             document.getElementById("title").innerHTML = " Photo Tools"
         }
+        document.getElementById("custom_coc_config").style.display = "none"
         init_nav()
     }
 </script>
