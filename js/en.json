@@ -9,5 +9,7 @@
     "f_stop": "F-stop",
     "distance": "Distance",
     "guide_number": "Guide number",
-    "coc": "Circle of Confusion"
+    "coc": "Circle of Confusion",
+    "focal_length": "Focal length",
+    "enlargement": "Enlargement"
 }
