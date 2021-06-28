@@ -1,8 +1,13 @@
 {
     "title": "Photography Toolbox",
+    "title_short": "Photo Tools",
     "dof": "Depth of Field",
     "priority": "Priority modes",
     "exposure": "Exposure",
     "flash exposure": "Flash exposure",
-    "aov": "Angles of view"
+    "aov": "Angles of view",
+    "f_stop": "F-stop",
+    "distance": "Distance",
+    "guide_number": "Guide number",
+    "coc": "Circle of Confusion"
 }
