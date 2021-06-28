@@ -66,3 +66,18 @@ init_nav = () => {
         )
     });
 }
+
+LANGS = ["en"]
+LANG_FLAGS = {
+    "en": "🇬🇧"
+}
+
+// https://stackoverflow.com/a/34579496
+language_select = select_id => {
+    let select = document.getElementById(select_id)
+    LANGS.forEach(element => {
+        let option = document.createElement('option')
+        option.text = LANG_FLAGS[element] + " " + element
+        select.add(option)
+    })
+}
