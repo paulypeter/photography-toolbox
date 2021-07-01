@@ -11,8 +11,25 @@ day_of_year = date => {
     return day_of_year
 }
 
+solar_mean_anomaly = date => {
+    return 0 - 3.18 + 0.98560 * day_of_year(date)
+}
+
+eq_center = anomaly => {
+    let m = deg_to_rad(anomaly)
+    return (
+        1.9148 * Math.sin(m) + 0.02 * Math.sin(2 * m) + 0.0003 * Math.sin(3 * m)
+    )
+}
+
 is_leap_year = year => {
     return (((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0))
+}
+
+ecliptic_long = (mean_anomaly, eq_center) => {
+    return (
+        (mean_anomaly + eq_center + 180 + 102.9372) % 360
+    )
 }
 
 // gamma
@@ -53,13 +70,32 @@ solar_declination = gamma => {
  *  long in degrees
  *  tz: hours from UTC, e. g. -5, +1, ...
  */
-// offset = (eqtime, long, tz) => {
-//     return eqtime + 4 * long - 60 * tz
-// }
+offset = (eqtime, long, tz) => {
+    return eqtime + 4 * long - 60 * tz
+}
 
-// tst = (hr, mn, sc, time_offset) => {
-//     return hr * 60 + mn + sc / 60 + time_offset
-// }
+tst = (hr, mn, sc, time_offset) => {
+    return hr * 60 + mn + sc / 60 + time_offset
+}
+
+sun_decl = ecliptic_long => {
+    return Math.asin(
+        Math.sin(deg_to_rad(ecliptic_long)) * Math.sin(deg_to_rad(23.44))
+    )
+}
+
+// decl is in rad
+hour_angle = (decl, lat) => {
+    return (
+        rad_to_deg(
+            Math.acos(
+                (Math.sin(deg_to_rad(-0.833)) - Math.sin(deg_to_rad(lat) * Math.sin(decl))) / 
+                (Math.cos(deg_to_rad(lat) * Math.cos(decl)))
+            )
+        )
+    )
+}
+
 
 // hour_angle = tst => {
 //     return (tst / 4) - 180
@@ -109,17 +145,21 @@ sunset_time = (long, eqtime, ha) => {
     )
 }
 
-// solar_noon = (long, eqtime) => {
-//     return 720 - 4 * long - eqtime
-// }
+solar_noon = (long, eqtime) => {
+    return 720 - 4 * long - eqtime
+}
 
 sunevent_for_location = (lat, long, date, tz, event) => {
     gamma = fract_year(date)
     eq_time = eqtime(gamma)
-    decl = solar_declination(gamma)
-    set_rise_diff = set_rise_ha(lat, decl)
+    s_m_a = solar_mean_anomaly(date)
+    eqc = eq_center(s_m_a)
+    ecl_long = ecliptic_long(s_m_a, eqc)
+
+    decl = sun_decl(ecl_long)
+    set_rise_diff = hour_angle(decl, lat)
     if (event == "rise") {
-        event_time = sunrise_time(long, eq_time, set_rise_diff) + tz * 60
+        event_time = solar_noon(long, eq_time) - set_rise_diff + tz * 60
     } else {
         event_time = sunset_time(long, eq_time, set_rise_diff) + tz * 60
     }
