@@ -82,3 +82,8 @@ language_select = select_id => {
         select.add(option)
     })
 }
+
+set_language = lang_str => {
+    storage = window.localStorage;
+        storage.setItem('lang', lang_str)
+}
