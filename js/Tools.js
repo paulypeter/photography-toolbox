@@ -85,5 +85,6 @@ language_select = select_id => {
 
 set_language = lang_str => {
     storage = window.localStorage;
-        storage.setItem('lang', lang_str)
+    storage.setItem('lang', lang_str)
+    location.reload()
 }
