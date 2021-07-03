@@ -9,6 +9,7 @@
         <div class=menu></div>
         <a><i class="fa fa-camera menu" id=title> Photography Toolbox</i></a>
         <a href="docs/calculations.html" target="_blank" class=helplink><i class="fa fa-question menu"></i></a>
+        <select id=language></select>
     </div>
     </nav>
 </header>
@@ -62,6 +63,7 @@
 
 <script>
     window.onload = () => {
+        language_select("language")
         storage = window.localStorage;
         storage.setItem('lang', 'en')
         let window_width = window.innerWidth;
