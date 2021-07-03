@@ -1,6 +1,7 @@
 {
     "title": "Photographie-Toolbox",
     "title_short": "Photo-Tools",
+    "home": "Startseite",
     "dof": "Tiefenschärfe",
     "priority": "Halbautomatik",
     "exposure": "Belichtung",
