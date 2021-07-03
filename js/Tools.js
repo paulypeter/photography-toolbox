@@ -67,9 +67,10 @@ init_nav = () => {
     });
 }
 
-LANGS = ["en"]
+LANGS = ["en", "de"]
 LANG_FLAGS = {
-    "en": "🇬🇧"
+    "en": "🇬🇧",
+    "de": "🇩🇪"
 }
 
 // https://stackoverflow.com/a/34579496
