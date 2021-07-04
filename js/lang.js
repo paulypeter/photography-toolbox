@@ -14,7 +14,7 @@ lang_strings = {
         "coc": "Circle of Confusion",
         "focal_length": "Focal length",
         "enlargement": "Enlargement",
-        "sensor": "Sensor",
+        "sensor": "Sensor format",
         "hyperfocal": "Hyperfocal dist",
         "near_limit": "Near limit",
         "far_limit": "Far limit"
@@ -24,7 +24,7 @@ lang_strings = {
         "title_short": " Photo-Tools",
         "home": "Startseite",
         "dof": "Tiefenschärfe",
-        "priority": "Halbautomatik",
+        "priority": "Halbautomatiken",
         "exposure": "Belichtung",
         "flash_exposure": "Belichtung (Blitz)",
         "aov": "Bildwinkel",
@@ -34,7 +34,7 @@ lang_strings = {
         "coc": "Zerstreuung",
         "focal_length": "Brennweite",
         "enlargement": "Vergrößerung",
-        "sensor": "Sensor",
+        "sensor": "Sensorformat",
         "hyperfocal": "Hyperfokale",
         "near_limit": "Nahgrenze",
         "far_limit": "Ferngrenze"
