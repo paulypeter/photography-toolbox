@@ -25,7 +25,7 @@ require = path => {}
 
 open_nav = () => {
     sidebar = document.getElementById("sidebar")
-    sidebar.style.width = "250px"
+    sidebar.style.width = "225px"
     // containers = document.getElementsByClassName("form-container")
     // for (let i = 0; i < containers.length; i++) {
     //     containers[i].style.marginLeft = "250px"
@@ -47,22 +47,15 @@ close_nav = () => {
     sidebar.style.visibility = "hidden"
 }
 
-init_nav = () => {
+init_nav = lang_str => {
     let pages = ["index", "aov", "av_tv", "dof", "exposure", "flash"]
-    let page_names = {
-        "index": "Home",
-        "aov": "Angles of View",
-        "av_tv": "Priority Modes",
-        "dof": "Depth of Field",
-        "exposure": "Equivalent exposure",
-        "flash": "Flash exposure"
-    }
+    lang_settings = lang_strings[lang_str]
     let sidebar = document.getElementById("sidebar")
     sidebar.innerHTML = ""
     pages.forEach(element => {
         sidebar.innerHTML += (
             "<a href=\"" + element + ".html\" class=\"sidebar-link menu\">" +
-            page_names[element] + "</a>"
+            lang_settings[element] + "</a>"
         )
     });
 }
