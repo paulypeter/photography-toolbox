@@ -91,3 +91,8 @@ set_language = lang_str => {
     storage.setItem('lang', lang_str)
     location.reload()
 }
+
+get_language = () => {
+    storage = window.localStorage
+    return storage.getItem('lang')
+}
