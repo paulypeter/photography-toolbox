@@ -18,3 +18,24 @@ en = {
     "near_limit": "Near limit",
     "far_limit": "Far limit"
 }
+
+de = {
+    "title": " Photographie-Toolbox",
+    "title_short": " Photo-Tools",
+    "home": "Startseite",
+    "dof": "Tiefenschärfe",
+    "priority": "Halbautomatik",
+    "exposure": "Belichtung",
+    "flash exposure": "Belichtung (Blitz)",
+    "aov": "Bildwinkel",
+    "f_stop": "Blende",
+    "distance": "Entfernung",
+    "guide_number": "Leitzahl",
+    "coc": "Zerstreuung",
+    "focal_length": "Brennweite",
+    "enlargement": "Vergrößerung",
+    "sensor": "Sensor",
+    "hyperfocal": "Hyperfokale",
+    "near_limit": "Nahgrenze",
+    "far_limit": "Ferngrenze"
+}
