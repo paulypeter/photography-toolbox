@@ -79,6 +79,7 @@ language_select = (select_id, lang_str) => {
     LANGS.forEach(element => {
         let option = document.createElement('option')
         option.text = LANG_FLAGS[element] + " " + element
+        option.value = element
         if (element == lang_str) {
             option.selected = "selected"
         }
