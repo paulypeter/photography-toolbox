@@ -24,7 +24,8 @@ lang_strings = {
         "result": "result",
         "EV": "EV",
         "original_settings": "Original settings:",
-        "target_settings": "Target settings:"
+        "target_settings": "Target settings:",
+        "calculate": "Calculate:"
     },
     "de": {
         "title": " Photographie-Toolbox",
@@ -51,6 +52,7 @@ lang_strings = {
         "result": "Ergebnis",
         "EV": "LW",
         "original_settings": "Ursprüngl. Einstellungen:",
-        "target_settings": "Zieleinstellungen:"
+        "target_settings": "Zieleinstellungen:",
+        "calculate": "Berechnen:"
     }
 }
