@@ -26,7 +26,8 @@ lang_strings = {
         "original_settings": "Original settings:",
         "target_settings": "Target settings:",
         "calculate": "Calculate:",
-        "equiv_exposure": "Equivalent exposure"
+        "equiv_exposure": "Equivalent exposure",
+        "equiv_focal_length": "Equivalent focal length"
     },
     "de": {
         "title": " Photographie-Toolbox",
@@ -55,6 +56,7 @@ lang_strings = {
         "original_settings": "Ursprüngl. Einstellungen:",
         "target_settings": "Zieleinstellungen:",
         "calculate": "Berechnen:",
-        "equiv_exposure": "Äquivalente Belichtung"
+        "equiv_exposure": "Äquivalente Belichtung",
+        "equiv_focal_length": "Äquivalente Brennweite"
     }
 }

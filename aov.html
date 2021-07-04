@@ -7,7 +7,7 @@
     <div class=nav>
         <a id=nav_toggle onclick="open_nav()"><i class="fa fa-bars menu" aria-hidden="true"></i></a>
         <div class=menu></div>
-        <a href="index.html"><i class="fa fa-camera menu" id=title> Photography Toolbox</i></a>
+        <a href="index.html"><i class="fa fa-camera menu" id=title data-lang-str="title"> Photography Toolbox</i></a>
         <a href="docs/calculations.html" target="_blank" class=helplink><i class="fa fa-question menu"></i></a>
     </div>
     </nav>
@@ -15,6 +15,7 @@
 <link rel=stylesheet href=static/style.css type=text/css>
 <script src="src/crop-factor.js"></script>
 <script src="src/exposure.js"></script>
+<script src="js/lang.js"></script>
 <script src="js/Tools.js"></script>
 
 <script src="https://use.fontawesome.com/f35383e121.js"></script>
@@ -28,16 +29,18 @@
 
 <div class=form-container>
     <div class=row>
-        <div class=column><label for="sensor">Sensor format</label></div>
+        <div class=column><label for="sensor" data-lang-str="sensor">Sensor format</label></div>
         <div class=column><select id="sensor" onchange="update_result()"></select></div>
     </div>
     <div class=row>
-        <div class=column><label for=focal_length>Focal length</label></div>
+        <div class=column><label for=focal_length data-lang-str="focal_length">Focal length</label></div>
         <div class=column><input type="number" id=focal_length onchange="update_result()" value=50></div>
     </div>
 </div>
 <div class=container>
-    <h3>Equivalent focal length:</h3>
+    <div class=row>
+    <h3 data-lang-str="equiv_focal_length">Equivalent focal length:</h3>
+</div>
 <div class=row>
     <span id=resulting_focal_length></span><span> mm</span>
 </div><br>
@@ -45,7 +48,7 @@
 
 <div class=container>
 <div class=row>
-    <h3>Angles of view</h3>
+    <h3 data-lang-str="aov">Angles of view</h3>
 </div>
 <div class=row>
     <div class=column>horizontal</div>
@@ -78,10 +81,15 @@
 
     window.onload = () => {
         update_result()
+        current_lang = get_language()
+        if (current_lang == null) {
+            set_language("en")
+        }
         let window_width = window.innerWidth;
         if (window_width < 340) {
             document.getElementById("title").innerHTML = " Photo Tools"
         }
         init_nav()
+        apply_language(current_lang)
     }
 </script>
