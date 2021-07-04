@@ -23,8 +23,8 @@ lang_strings = {
         "shutter": "Shutter",
         "result": "result",
         "EV": "EV",
-        "original_settings": "Original settings",
-        "target_settings": "Target settings"
+        "original_settings": "Original settings:",
+        "target_settings": "Target settings:"
     },
     "de": {
         "title": " Photographie-Toolbox",
@@ -50,7 +50,7 @@ lang_strings = {
         "shutter": "Verschlusszeit",
         "result": "Ergebnis",
         "EV": "LW",
-        "original_settings": "Ursprüngl. Einstellungen",
-        "target_settings": "Zieleinstellungen"
+        "original_settings": "Ursprüngl. Einstellungen:",
+        "target_settings": "Zieleinstellungen:"
     }
 }
