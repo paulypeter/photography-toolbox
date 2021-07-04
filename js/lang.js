@@ -22,7 +22,9 @@ lang_strings = {
         "far_limit": "Far limit",
         "shutter": "Shutter",
         "result": "result",
-        "EV": "EV"
+        "EV": "EV",
+        "original_settings": "Original settings",
+        "target_settings": "Target settings"
     },
     "de": {
         "title": " Photographie-Toolbox",
@@ -47,6 +49,8 @@ lang_strings = {
         "far_limit": "Ferngrenze",
         "shutter": "Verschlusszeit",
         "result": "Ergebnis",
-        "EV": "LW"
+        "EV": "LW",
+        "original_settings": "Ursprüngl. Einstellungen",
+        "target_settings": "Zieleinstellungen"
     }
 }
