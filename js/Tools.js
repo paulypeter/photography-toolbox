@@ -74,11 +74,14 @@ LANG_FLAGS = {
 }
 
 // https://stackoverflow.com/a/34579496
-language_select = select_id => {
+language_select = (select_id, lang_str) => {
     let select = document.getElementById(select_id)
     LANGS.forEach(element => {
         let option = document.createElement('option')
         option.text = LANG_FLAGS[element] + " " + element
+        if (element == lang_str) {
+            option.selected = "selected"
+        }
         select.add(option)
     })
 }
