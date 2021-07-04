@@ -25,7 +25,8 @@ lang_strings = {
         "EV": "EV",
         "original_settings": "Original settings:",
         "target_settings": "Target settings:",
-        "calculate": "Calculate:"
+        "calculate": "Calculate:",
+        "equiv_exposure": "Equivalent exposure"
     },
     "de": {
         "title": " Photographie-Toolbox",
@@ -53,6 +54,7 @@ lang_strings = {
         "EV": "LW",
         "original_settings": "Ursprüngl. Einstellungen:",
         "target_settings": "Zieleinstellungen:",
-        "calculate": "Berechnen:"
+        "calculate": "Berechnen:",
+        "equiv_exposure": "Äquivalente Belichtung"
     }
 }
