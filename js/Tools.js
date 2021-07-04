@@ -96,3 +96,11 @@ get_language = () => {
     storage = window.localStorage
     return storage.getItem('lang')
 }
+
+apply_language = lang_str => {
+    lang_settings = lang_strings[lang_str]
+    elements_to_translate = document.querySelectorAll("[data-lang-str]")
+    elements_to_translate.forEach(element => {
+        element.innerHTML = lang_settings[element.getAttribute("data-lang-str")]
+    })
+}
