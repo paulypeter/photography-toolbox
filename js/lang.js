@@ -20,7 +20,8 @@ lang_strings = {
         "hyperfocal": "Hyperfocal dist",
         "near_limit": "Near limit",
         "far_limit": "Far limit",
-        "shutter": "Shutter"
+        "shutter": "Shutter",
+        "result": "result"
     },
     "de": {
         "title": " Photographie-Toolbox",
@@ -43,6 +44,7 @@ lang_strings = {
         "hyperfocal": "Hyperfokale",
         "near_limit": "Nahgrenze",
         "far_limit": "Ferngrenze",
-        "shutter": "Verschlusszeit"
+        "shutter": "Verschlusszeit",
+        "result": "Ergebnis"
     }
 }
