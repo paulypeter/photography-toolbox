@@ -25,7 +25,7 @@ require = path => {}
 
 open_nav = () => {
     sidebar = document.getElementById("sidebar")
-    sidebar.style.width = "250px"
+    sidebar.style.width = "225px"
     // containers = document.getElementsByClassName("form-container")
     // for (let i = 0; i < containers.length; i++) {
     //     containers[i].style.marginLeft = "250px"
@@ -47,22 +47,54 @@ close_nav = () => {
     sidebar.style.visibility = "hidden"
 }
 
-init_nav = () => {
+init_nav = lang_str => {
     let pages = ["index", "aov", "av_tv", "dof", "exposure", "flash"]
-    let page_names = {
-        "index": "Home",
-        "aov": "Angles of View",
-        "av_tv": "Priority Modes",
-        "dof": "Depth of Field",
-        "exposure": "Equivalent exposure",
-        "flash": "Flash exposure"
-    }
+    lang_settings = lang_strings[lang_str]
     let sidebar = document.getElementById("sidebar")
     sidebar.innerHTML = ""
     pages.forEach(element => {
         sidebar.innerHTML += (
             "<a href=\"" + element + ".html\" class=\"sidebar-link menu\">" +
-            page_names[element] + "</a>"
+            lang_settings[element] + "</a>"
         )
     });
+}
+
+LANGS = ["en", "de"]
+LANG_FLAGS = {
+    "en": "🇬🇧",
+    "de": "🇩🇪"
+}
+
+// https://stackoverflow.com/a/34579496
+language_select = (select_id, lang_str) => {
+    let select = document.getElementById(select_id)
+    LANGS.forEach(element => {
+        let option = document.createElement('option')
+        option.text = LANG_FLAGS[element] + " " + element
+        option.value = element
+        if (element == lang_str) {
+            option.selected = "selected"
+        }
+        select.add(option)
+    })
+}
+
+set_language = lang_str => {
+    storage = window.localStorage;
+    storage.setItem('lang', lang_str)
+    location.reload()
+}
+
+get_language = () => {
+    storage = window.localStorage
+    return storage.getItem('lang')
+}
+
+apply_language = lang_str => {
+    lang_settings = lang_strings[lang_str]
+    elements_to_translate = document.querySelectorAll("[data-lang-str]")
+    elements_to_translate.forEach(element => {
+        element.innerHTML = lang_settings[element.getAttribute("data-lang-str")]
+    })
 }

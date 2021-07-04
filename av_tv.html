@@ -7,7 +7,7 @@
     <div class=nav>
         <a id=nav_toggle onclick="open_nav()"><i class="fa fa-bars menu" aria-hidden="true"></i></a>
         <div class=menu></div>
-        <a href="index.html"><i class="fa fa-camera menu" id=title> Photography Toolbox</i></a>
+        <a href="index.html"><i class="fa fa-camera menu" id=title data-lang-str="title"> Photography Toolbox</i></a>
         <a href="docs/calculations.html" target="_blank" class=helplink><i class="fa fa-question menu"></i></a>
     </div>
     </nav>
@@ -15,6 +15,7 @@
 <link rel=stylesheet href=static/style.css type=text/css>
 <script src="src/crop-factor.js"></script>
 <script src="src/exposure.js"></script>
+<script src="js/lang.js"></script>
 <script src="js/Tools.js"></script>
 
 <script src="https://use.fontawesome.com/f35383e121.js"></script>
@@ -26,37 +27,37 @@
 
 <div id=content>
 <div class=form-container>
-    <div class=row>Priority:</div>
+    <div class=row data-lang-str="priority">Priority</div>
     <div onchange="toggle_input(); update_result()" class=row>
         <input type="radio" name=setting_choice id=set_shutter_speed value="shutter">
-        <label for=set_shutter_speed>Shutter</label>
+        <label for=set_shutter_speed data-lang-str="shutter">Shutter</label>
         <input type="radio" name=setting_choice id=set_f_stop value="f_stop">
-        <label for=set_f_stop>F-Stop</label>
+        <label for=set_f_stop data-lang-str="f_stop">F-Stop</label>
     </div>
 </div>
 <div class=form-container>
-    <div class=row>Settings:</div>
+    <div class=row data-lang-str="settings">Settings:</div>
     <div class=row>
         <div class=column><label for="iso_speed">ISO</label></div>
         <div class=column><select id="iso_speed" onchange="update_result()"></select></div>
     </div>
     <div class=row id=f_stop_select>
-        <div class=column><label for="f_stop">F-stop</label></div>
+        <div class=column><label for="f_stop" data-lang-str="f_stop">F-stop</label></div>
         <div class=column><select id="f_stop" onchange="update_result()"></select></div>
     </div>
     <div class=row id=shutter_select>
-        <div class=column><label for="shutter">Shutter speed</label></div>
+        <div class=column><label for="shutter" data-lang-str="shutter">Shutter speed</label></div>
         <div class=column><select id="shutter" onchange="update_result()"></select></div>
     </div>
     <div class=row>
-        <div class=column><label for=ev>EV: <span id=ev_input class=input></span></label></div>
+        <div class=column><label for=ev><span data-lang-str="EV">EV</span>: <span id=ev_input class=input></span></label></div>
         <input type="range" id=ev min=-6 max=21 step=1 value=12 onchange="update_input(); update_result()">
     </div>
 </div>
 <div class=form-container>
     <div class=row>
         <strong>
-        <div class=column>result:</div>
+        <div class=column data-lang-str="result">result:</div>
         <div class=column>
             <span id=result_prefix></span>
             <span id=result></span>
@@ -78,12 +79,17 @@
         document.getElementById("f_stop_select").style.display = "none"
         update_input()
         update_result()
+        current_lang = get_language()
+        if (current_lang == null) {
+            set_language("en")
+        }
         document.getElementById("result_prefix").innerHTML = "f/"
         let window_width = window.innerWidth;
         if (window_width < 340) {
             document.getElementById("title").innerHTML = " Photo Tools"
         }
-        init_nav()
+        init_nav(current_lang)
+        apply_language(current_lang)
     }
 
     toggle_input = () => {
