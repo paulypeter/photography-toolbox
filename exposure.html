@@ -15,6 +15,7 @@
 <link rel=stylesheet href=static/style.css type=text/css>
 <script src="src/crop-factor.js"></script>
 <script src="src/exposure.js"></script>
+<script src="js/lang.js"></script>
 <script src="js/Tools.js"></script>
 
 <script src="https://use.fontawesome.com/f35383e121.js"></script>
@@ -33,11 +34,11 @@
         Original settings:
     </div>
     <div class=row>
-        <div class=column><label for="shutter">Shutter speed</label></div>
+        <div class=column><label for="shutter" data-lang-str="shutter">Shutter speed</label></div>
         <div class=column><select id="shutter" onchange="update_result()"></select></div>
     </div>
     <div class=row>
-        <div class=column><label for="f_stop">F-stop</label></div>
+        <div class=column><label for="f_stop" data-lang-str="f_stop">F-stop</label></div>
         <div class=column><select id="f_stop" onchange="update_result()"></select></div>
     </div>
     <div class=row>
@@ -50,11 +51,11 @@
     <div class=row>
         <div onchange="toggle_input(); update_result()" class=row>
             <input type="radio" name=setting_choice id=get_shutter_speed value="shutter">
-            <label for=get_shutter_speed>Shutter</label>
+            <label for=get_shutter_speed data-lang-str="shutter">Shutter</label>
             <input type="radio" name=setting_choice id=get_f_stop value="f_stop">
-            <label for=get_f_stop>F-Stop</label>
+            <label for=get_f_stop data-lang-str="f_stop">F-Stop</label>
             <input type="radio" name=setting_choice id=get_iso_speed value="iso_speed">
-            <label for=get_iso_speed>ISO Speed</label>
+            <label for=get_iso_speed>ISO</label>
         </div>
     </div>
 </div>
@@ -63,11 +64,11 @@
         Target settings:
     </div>
     <div class=row id=target_shutter_select>
-        <div class=column><label for="target_shutter">Shutter speed</label></div>
+        <div class=column><label for="target_shutter" data-lang-str="shutter">Shutter speed</label></div>
         <div class=column><select id="target_shutter" onchange="update_result()"></select></div>
     </div>
     <div class=row id=target_f_stop_select>
-        <div class=column><label for="target_f_stop">F-stop</label></div>
+        <div class=column><label for="target_f_stop" data-lang-str="f_stop">F-stop</label></div>
         <div class=column><select id="target_f_stop" onchange="update_result()"></select></div>
     </div>
     <div class=row id=target_iso_speed_select>
@@ -78,7 +79,7 @@
 <div class=form-container>
     <div class=row>
         <strong>
-        <div class=column>result:</div>
+        <div class=column data-lang-str="result">result</div>
         <div class=column>
             <span id=result_prefix></span>
             <span id=result></span>
@@ -136,9 +137,14 @@
 
     window.onload = () => {
         let window_width = window.innerWidth;
+        current_lang = get_language()
+        if (current_lang == null) {
+            set_language("en")
+        }
         if (window_width < 340) {
             document.getElementById("title").innerHTML = " Photo Tools"
         }
         init_nav()
+        apply_language(current_lang)
     }
 </script>
