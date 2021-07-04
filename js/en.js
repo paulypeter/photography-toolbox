@@ -1,0 +1,20 @@
+en = {
+    "title": " Photography Toolbox",
+    "title_short": " Photo Tools",
+    "home": "Home",
+    "dof": "Depth of Field",
+    "priority": "Priority modes",
+    "exposure": "Exposure",
+    "flash exposure": "Flash exposure",
+    "aov": "Angles of view",
+    "f_stop": "F-stop",
+    "distance": "Distance",
+    "guide_number": "Guide number",
+    "coc": "Circle of Confusion",
+    "focal_length": "Focal length",
+    "enlargement": "Enlargement",
+    "sensor": "Sensor",
+    "hyperfocal": "Hyperfocal dist",
+    "near_limit": "Near limit",
+    "far_limit": "Far limit"
+}
