@@ -21,7 +21,8 @@ lang_strings = {
         "near_limit": "Near limit",
         "far_limit": "Far limit",
         "shutter": "Shutter",
-        "result": "result"
+        "result": "result",
+        "EV": "EV"
     },
     "de": {
         "title": " Photographie-Toolbox",
@@ -45,6 +46,7 @@ lang_strings = {
         "near_limit": "Nahgrenze",
         "far_limit": "Ferngrenze",
         "shutter": "Verschlusszeit",
-        "result": "Ergebnis"
+        "result": "Ergebnis",
+        "EV": "LW"
     }
 }
