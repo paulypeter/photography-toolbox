@@ -54,20 +54,20 @@
     </div>
     <div class=row>
         <input type="checkbox" id=use_custom_coc name=use_custom_coc value=use_custom_coc onchange="toggle_coc(this.checked); update_result()">
-        <label for=use_custom_coc>Use custom Circle of Confusion calculation</label>
+        <label for=use_custom_coc data-lang-str="use_custom_coc">Use custom Circle of Confusion calculation</label>
     </div>
 </div>
 <div class=form-container id=custom_coc_config>
     <div class=row>
-        <div class=column><label for=viewing_dist>View dist [cm]:</label></div>
-        <div class=column><input type="number" id=viewing_dist value=25 onchange="update_result()"></div>
+        <div class=column><label for=viewing_dist data-lang-str="view_distance">View distance</label></div>
+        <div class=column><input type="number" id=viewing_dist value=25 onchange="update_result()"> cm</div>
     </div>
     <div class=row>
-        <div class=column><label for=lpmm>line pairs / mm:</label></div>
+        <div class=column><label for=lpmm data-lang-str="lpmm">line pairs / mm:</label></div>
         <div class=column><input type="number" id=lpmm value=5 onchange="update_result()"></div>
     </div>
     <div class=row>
-        <div class=column><label for=enlargement>Enlargement:</label></div>
+        <div class=column><label for=enlargement data-lang-str="enlargement">Enlargement:</label></div>
         <div class=column><input type="number" id=enlargement value=8 onchange="update_result()"></div>
     </div>
 </div>

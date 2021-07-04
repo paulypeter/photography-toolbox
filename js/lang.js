@@ -27,7 +27,10 @@ lang_strings = {
         "target_settings": "Target settings:",
         "calculate": "Calculate:",
         "equiv_exposure": "Equivalent exposure",
-        "equiv_focal_length": "Equivalent focal length"
+        "equiv_focal_length": "Equivalent focal length",
+        "lpmm": "line pairs / mm",
+        "view_distance": "View distance",
+        "use_custom_coc": "Use custom Circle of Confusion calculation"
     },
     "de": {
         "title": " Photographie-Toolbox",
@@ -57,6 +60,9 @@ lang_strings = {
         "target_settings": "Zieleinstellungen:",
         "calculate": "Berechnen:",
         "equiv_exposure": "Äquivalente Belichtung",
-        "equiv_focal_length": "Äquivalente Brennweite"
+        "equiv_focal_length": "Äquivalente Brennweite",
+        "lpmm": "Linienpaare/mm",
+        "view_distance": "Bildabstand",
+        "use_custom_coc": "Zerstreuungskreis berechnen"
     }
 }
