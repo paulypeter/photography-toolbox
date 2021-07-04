@@ -7,7 +7,7 @@
     <div class=nav>
         <a id=nav_toggle onclick="open_nav()"><i class="fa fa-bars menu" aria-hidden="true"></i></a>
         <div class=menu></div>
-        <a href="index.html"><i class="fa fa-camera menu" id=title> Photography Toolbox</i></a>
+        <a href="index.html"><i class="fa fa-camera menu" id=title data-lang-str="title"> Photography Toolbox</i></a>
         <a href="docs/calculations.html" target="_blank" class=helplink><i class="fa fa-question menu"></i></a>
     </div>
     </nav>
@@ -15,6 +15,7 @@
 <link rel=stylesheet href=static/style.css type=text/css>
 <script src="src/crop-factor.js"></script>
 <script src="src/exposure.js"></script>
+<script src="js/lang.js"></script>
 <script src="js/Tools.js"></script>
 <script src="src/flash.js"></script>
 
@@ -29,14 +30,14 @@
 
 <div class=form-container>
     <div class=row>
-        <div class=column>Calculate:</div>
+        <div class=column data-lang-str="calculate">Calculate:</div>
         <div onchange="toggle_input(); update_result()" class=row>
             <input type="radio" name=setting_choice id=get_guide_number value="guide_number">
-            <label for=get_guide_number>Guide Number</label>
+            <label for=get_guide_number data-lang-str="guide_number">Guide Number</label>
             <input type="radio" name=setting_choice id=get_f_stop value="f_stop" checked>
-            <label for=get_f_stop>F-Stop</label>
+            <label for=get_f_stop data-lang-str="f_stop">F-Stop</label>
             <input type="radio" name=setting_choice id=get_distance value="distance">
-            <label for=get_distance>Distance</label>
+            <label for=get_distance data-lang-str="distance">Distance</label>
         </div>
     </div>
 </div>
@@ -46,22 +47,22 @@
         <div class=column><select id="iso_speed" onchange="update_result()"></select></div>
     </div>
     <div class=row id="guide_number_input">
-        <div class=column><label for="guide_number">Guide Number</label></div>
+        <div class=column><label for="guide_number" data-lang-str="guide_number">Guide Number</label></div>
         <div class=column><input type=number id="guide_number" onchange="update_result()" value=43></div>
     </div>
     <div class=row id="f_stop_input">
-        <div class=column><label for="f_stop">F-stop</label></div>
+        <div class=column><label for="f_stop" data-lang-str="f_stop">F-stop</label></div>
         <div class=column><select id="f_stop" onchange="update_result()"></select></div>
     </div>
     <div class=row id="distance_input">
-        <div class=column><label for="distance">Distance</label></div>
+        <div class=column><label for="distance" data-lang-str="distance">Distance</label></div>
         <div class=column><input type=number id="distance" onchange="update_result()" value=10></div>
     </div>
 </div>
 <div class=form-container>
     <div class=row>
         <strong>
-        <div class=column>result:</div>
+        <div class=column data-lang-str="result">result:</div>
         <div class=column>
             <span id=result_prefix></span>
             <span id=result></span>
@@ -119,10 +120,15 @@
     window.onload = () => {
         toggle_input()
         update_result()
+        current_lang = get_language()
+        if (current_lang == null) {
+            set_language("en")
+        }
         let window_width = window.innerWidth;
         if (window_width < 340) {
             document.getElementById("title").innerHTML = " Photo Tools"
         }
         init_nav()
+        apply_language(current_lang)
     }
 </script>
