@@ -9,7 +9,7 @@
         <div class=menu></div>
         <a><i class="fa fa-camera menu" id=title data-lang-str="title"> Photography Toolbox</i></a>
         <a href="docs/calculations.html" target="_blank" class=helplink><i class="fa fa-question menu"></i></a>
-        <select id=language></select>
+        <select id=language onchange="set_language(this.value); apply_language(this.value);"></select>
     </div>
     </nav>
 </header>
@@ -64,14 +64,17 @@
 
 <script>
     window.onload = () => {
-        language_select("language")
-        storage = window.localStorage;
-        storage.setItem('lang', 'en')
+        current_lang = get_language()
+        if (current_lang == null) {
+            set_language("en")
+        }
+        language_select("language", current_lang)
         let window_width = window.innerWidth;
         if (window_width < 340) {
             document.getElementById("title").innerHTML = " Photo Tools"
         }
         init_nav()
+        apply_language(current_lang)
     }
 </script>
 </body>
