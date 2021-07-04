@@ -128,8 +128,6 @@
         res_ev = Math.round(
             exposure_value(target.f_stop, target.shutter, target.iso_speed)
         )
-        console.log(origin_ev)
-        console.log(res_ev)
         document.getElementById("result").innerHTML = equivalent_exposure(origin, target, mode)
         document.getElementById("result").style.color = (origin_ev != res_ev) ? "red" : "inherit"
     }
