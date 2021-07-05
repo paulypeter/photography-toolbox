@@ -66,7 +66,6 @@ LANG_FLAGS = {
     "de": "🇩🇪"
 }
 
-// https://stackoverflow.com/a/34579496
 language_select = (select_id, lang_str) => {
     let select = document.getElementById(select_id)
     LANGS.forEach(element => {
