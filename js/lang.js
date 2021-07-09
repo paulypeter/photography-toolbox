@@ -32,7 +32,8 @@ lang_strings = {
         "equiv_focal_length": "Equivalent focal length",
         "lpmm": "line pairs / mm",
         "view_distance": "View distance",
-        "use_custom_coc": "Use custom Circle of Confusion calculation"
+        "use_custom_coc": "Use custom Circle of Confusion calculation",
+        "vertical": "vertical"
     },
     "de": {
         "title": " Photographie-Toolbox",
@@ -67,6 +68,7 @@ lang_strings = {
         "equiv_focal_length": "Äquivalente Brennweite",
         "lpmm": "Linienpaare/mm",
         "view_distance": "Bildabstand",
-        "use_custom_coc": "Zerstreuungskreis berechnen"
+        "use_custom_coc": "Zerstreuungskreis berechnen",
+        "vertical": "vertikal"
     }
 }
