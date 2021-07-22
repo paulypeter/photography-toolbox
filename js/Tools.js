@@ -97,3 +97,8 @@ apply_language = lang_str => {
         element.innerHTML = lang_settings[element.getAttribute("data-lang-str")]
     })
 }
+
+set_setting_value = (setting_str, setting_value) => {
+    storage = window.localStorage;
+    storage.setItem(setting_str, str(setting_value))
+}
