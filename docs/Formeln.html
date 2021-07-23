@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<header>
+    <nav>
+        <div class=nav>
+            <a href="../index.html"><i class="fa fa-camera menu"> Photography Toolbox</i></a>
+        </div>
+    </nav>
+</header>
+<link rel=stylesheet href=../static/style.css type=text/css>
+
+<script src="https://use.fontawesome.com/f35383e121.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+<title>Formeln | Photography Toolbox</title>
+
+<h1>Für die Berechnungen genutzte Formeln</h1>
+
+This site documents the methods used to calculate results in
+<a href="https://github.com/paulypeter/photography-toolbox">photography-toolbox</a>.
+
+
+<h2>Exposure</h2>
+
+\( EV = \log_2{fstop ^ 2 \over t} - \log_2{ISO \over 100}\)
+<br>
+where \( t\) is the shutter speed
+
+<h2>Flash exposure</h2>
+
+\(GN = {distance * fstop * \sqrt{100 \over ISO}}\)
+
+<h2>Circle of Confusion</h2>
+
+Currently (as of v0.2.2), the Circle of Confusion is calculated as \(d/1500\), where \(d\) is the diagonal of the selected sensor.
+This may change in later versions! There might be the option to choose your calculation method later as well.
+
+<h2>Hyperfocal distance</h2>
+
+\( d_{hyperfocal} = {{f ^ 2} \over {fstop * CoC}} \)
+
+<h2>Depth of Field</h2>
+
+\(near = {{d_{hyperfocal} * distance} \over {d_{hyperfocal} + (distance - f) }} \)
+<br><br>
+\(far = {{d_{hyperfocal} * distance} \over {d_{hyperfocal} - (distance - f) }} \)
+<br><br>
+\(dof = far - near \)
